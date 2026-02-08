@@ -1,14 +1,10 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { ArrowRight, MapPin, Home, TrendingUp, Shield } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 
 const Hero = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
   return (
     <section
       id="home"
-      ref={ref}
       className="relative min-h-screen flex items-center overflow-hidden bg-primary"
     >
       {/* Animated gradient background */}
@@ -79,8 +75,9 @@ const Hero = () => {
             <motion.div
               className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2 mb-8"
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             >
               <MapPin className="w-4 h-4 text-accent" />
               <span className="text-accent text-sm font-medium">Ongole, Andhra Pradesh</span>
@@ -89,8 +86,9 @@ const Hero = () => {
             <motion.h1
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-poppins font-bold text-white leading-[1.1] mb-6"
               initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
             >
               Find Your
               <br />
@@ -108,9 +106,10 @@ const Hero = () => {
 
             <motion.p
               className="text-white/60 text-lg max-w-lg mb-10 leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
             >
               We offer a wide range of properties for sale — from premium investment
               lands to ready-to-move houses that exceed your expectations.
@@ -119,13 +118,18 @@ const Hero = () => {
             <motion.div
               className="flex flex-wrap gap-4"
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
             >
               <motion.a
                 href="#projects"
                 className="group relative flex items-center gap-2 bg-gradient-to-r from-accent via-amber-400 to-orange-500 hover:from-orange-500 hover:to-accent text-primary font-bold px-8 py-4 rounded-full text-sm transition-all overflow-hidden"
                 style={{ boxShadow: '0 10px 40px rgba(245, 158, 11, 0.4)' }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{ scale: 1.08, y: -2, boxShadow: '0 15px 50px rgba(245, 158, 11, 0.5)' }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -141,6 +145,10 @@ const Hero = () => {
               <motion.a
                 href="#contact"
                 className="group relative flex items-center gap-2 border-2 border-white/30 hover:border-accent backdrop-blur-sm bg-white/10 text-white font-semibold px-8 py-4 rounded-full text-sm transition-all overflow-hidden"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -157,9 +165,10 @@ const Hero = () => {
             {/* Quick stats */}
             <motion.div
               className="flex gap-8 mt-14 pt-8 border-t border-white/10"
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 1, duration: 0.8 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: 0.6, duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
             >
               {[
                 { number: '500+', label: 'Properties Sold' },
@@ -169,8 +178,9 @@ const Hero = () => {
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 1.2 + i * 0.2 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ delay: 0.7 + i * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 >
                   <div className="text-2xl font-poppins font-bold text-accent">{stat.number}</div>
                   <div className="text-white/40 text-sm">{stat.label}</div>
@@ -185,9 +195,10 @@ const Hero = () => {
               {/* Main property showcase */}
               <motion.div
                 className="relative z-10 rounded-3xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm p-6"
-                initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
-                animate={inView ? { opacity: 1, scale: 1, rotateY: 0 } : {}}
-                transition={{ duration: 1, delay: 0.5 }}
+                initial={{ opacity: 0, x: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
               >
                 {/* Promotional Image */}
                 <motion.img

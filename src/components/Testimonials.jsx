@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Star, Quote } from 'lucide-react';
@@ -50,13 +49,10 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
   return (
     <section
       id="testimonials"
       className="relative py-24 lg:py-32 bg-gray-light overflow-hidden"
-      ref={ref}
     >
       {/* Background decorations */}
       <div className="absolute top-10 right-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
@@ -68,24 +64,27 @@ const Testimonials = () => {
           <motion.span
             className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             Testimonials
           </motion.span>
           <motion.h2
             className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-primary mb-6"
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
             What Our <span className="text-accent">Clients Say</span>
           </motion.h2>
           <motion.p
             className="text-gray-600 text-lg"
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
           >
             Hear from our satisfied customers who found their perfect properties with us.
           </motion.p>
@@ -94,8 +93,9 @@ const Testimonials = () => {
         {/* Testimonials slider */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.4, duration: 0.8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
           <Swiper
             modules={[Autoplay, Pagination]}
@@ -113,6 +113,10 @@ const Testimonials = () => {
               <SwiperSlide key={i}>
                 <motion.div
                   className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500 h-full"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ delay: i * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                   whileHover={{ y: -5 }}
                 >
                   {/* Quote icon */}

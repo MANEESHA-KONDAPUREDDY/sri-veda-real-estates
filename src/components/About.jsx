@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Award, Users, Target, Sparkles } from 'lucide-react';
 
 const About = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const features = [
     {
@@ -29,7 +27,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="relative py-24 lg:py-32 bg-white overflow-hidden" ref={ref}>
+    <section id="about" className="relative py-24 lg:py-32 bg-white overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -39,9 +37,10 @@ const About = () => {
           {/* Left - Visual */}
           <motion.div
             className="relative"
-            initial={{ opacity: 0, x: -80 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
             <div className="relative">
               {/* Main property image */}
@@ -75,9 +74,10 @@ const About = () => {
               {/* Floating card */}
               <motion.div
                 className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 border border-gray-100"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.8, duration: 0.6, type: 'spring' }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: 0.4, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
               >
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center">
@@ -96,11 +96,17 @@ const About = () => {
           </motion.div>
 
           {/* Right - Content */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+          >
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
             >
               <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-4">
                 About Us
@@ -114,8 +120,9 @@ const About = () => {
             <motion.p
               className="text-gray-600 text-lg leading-relaxed mb-6"
               initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3, duration: 0.8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: 0.2, duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
             >
               Sri Veda Real Estates Ongole has been a beacon of trust and reliability
               in the real estate market. We offer a wide range of properties for sale
@@ -126,8 +133,9 @@ const About = () => {
             <motion.p
               className="text-gray-600 leading-relaxed mb-10"
               initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: 0.3, duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
             >
               Our previous properties and ventures have achieved great appreciation for
               customers. We provide perfect investment solutions tailored to your needs,
@@ -140,9 +148,10 @@ const About = () => {
                 <motion.div
                   key={i}
                   className="group relative flex items-start gap-3 p-5 rounded-2xl border border-gray-100 hover:border-transparent bg-white hover:shadow-xl transition-all duration-500 cursor-default overflow-hidden"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.5 + i * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ delay: 0.4 + i * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                   whileHover={{ x: 5, y: -5 }}
                 >
                   {/* Gradient background on hover */}
@@ -167,7 +176,7 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { MapPin, Maximize, ArrowUpRight, BadgeCheck } from 'lucide-react';
 
 const categories = ['All', 'Open Plots', 'Investment', 'Residential', 'Commercial'];
@@ -78,7 +77,6 @@ const projects = [
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const filteredProjects =
     activeFilter === 'All'
@@ -86,7 +84,7 @@ const Projects = () => {
       : projects.filter((p) => p.type === activeFilter);
 
   return (
-    <section id="projects" className="relative py-24 lg:py-32 bg-primary overflow-hidden" ref={ref}>
+    <section id="projects" className="relative py-24 lg:py-32 bg-primary overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -106,24 +104,27 @@ const Projects = () => {
           <motion.span
             className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             Our Projects
           </motion.span>
           <motion.h2
             className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
             Featured <span className="text-accent">Properties</span>
           </motion.h2>
           <motion.p
             className="text-white/60 text-lg"
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
           >
             Explore our carefully selected properties offering the best value
             and appreciation potential in Ongole.
@@ -134,8 +135,9 @@ const Projects = () => {
         <motion.div
           className="flex flex-wrap justify-center gap-3 mb-12"
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ delay: 0.3, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         >
           {categories.map((cat) => (
             <motion.button
@@ -161,10 +163,11 @@ const Projects = () => {
               <motion.div
                 key={project.title}
                 layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.85, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
                 className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/20"
                 whileHover={{ y: -12, scale: 1.02 }}
               >

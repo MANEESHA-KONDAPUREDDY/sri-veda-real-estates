@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import {
   MapPin,
   Home,
@@ -70,10 +69,8 @@ const services = [
 ];
 
 const Services = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
   return (
-    <section id="services" className="relative py-24 lg:py-32 bg-gray-light overflow-hidden" ref={ref}>
+    <section id="services" className="relative py-24 lg:py-32 bg-gray-light overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -84,24 +81,27 @@ const Services = () => {
           <motion.span
             className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             Our Services
           </motion.span>
           <motion.h2
             className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-primary mb-6"
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
             What We <span className="text-accent">Offer</span>
           </motion.h2>
           <motion.p
             className="text-gray-600 text-lg"
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
           >
             Comprehensive real estate solutions tailored to your needs,
             from open plots to ready-to-move homes.
@@ -114,8 +114,9 @@ const Services = () => {
             <motion.div
               key={i}
               className="group relative bg-white rounded-3xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-transparent"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: 0.1 * i, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
               whileHover={{ y: -12, scale: 1.02 }}
             >

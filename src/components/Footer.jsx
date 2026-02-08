@@ -14,7 +14,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <motion.div
+            className="lg:col-span-1"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          >
             <div className="flex items-center gap-3 mb-6">
               <Building2 className="w-8 h-8 text-accent" strokeWidth={1.5} />
               <div>
@@ -50,31 +56,47 @@ const Footer = () => {
                 <Youtube className="w-4 h-4" />
               </motion.a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+          >
             <h4 className="text-sm font-poppins font-semibold text-white mb-6 uppercase tracking-wider">
               Quick Links
             </h4>
             <ul className="space-y-3">
               {['Home', 'About Us', 'Services', 'Projects', 'Testimonials', 'Contact'].map(
-                (link) => (
-                  <li key={link}>
+                (link, i) => (
+                  <motion.li
+                    key={link}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ delay: 0.1 + i * 0.05, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                  >
                     <a
                       href={`#${link.toLowerCase().replace(' ', '')}`}
                       className="text-white/50 hover:text-accent text-sm transition-colors hover:pl-2 inline-block duration-300"
                     >
                       {link}
                     </a>
-                  </li>
+                  </motion.li>
                 )
               )}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          >
             <h4 className="text-sm font-poppins font-semibold text-white mb-6 uppercase tracking-wider">
               Our Services
             </h4>
@@ -86,56 +108,91 @@ const Footer = () => {
                 'DTCP Approved Plots',
                 'Property Consultation',
                 'Venture Development',
-              ].map((service) => (
-                <li key={service}>
+              ].map((service, i) => (
+                <motion.li
+                  key={service}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ delay: 0.2 + i * 0.05, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                >
                   <span className="text-white/50 hover:text-accent text-sm transition-colors cursor-pointer hover:pl-2 inline-block duration-300">
                     {service}
                   </span>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact info */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
+          >
             <h4 className="text-sm font-poppins font-semibold text-white mb-6 uppercase tracking-wider">
               Contact Info
             </h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
+              <motion.li
+                className="flex items-start gap-3"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: 0.3, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+              >
                 <MapPin className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                 <span className="text-white/50 text-sm">
                   Main Road, Ongole,<br />
                   Prakasam District, AP - 523001
                 </span>
-              </li>
-              <li className="flex items-center gap-3">
+              </motion.li>
+              <motion.li
+                className="flex items-center gap-3"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: 0.35, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+              >
                 <Phone className="w-4 h-4 text-accent shrink-0" />
                 <a href="tel:+919876543210" className="text-white/50 hover:text-accent text-sm transition-colors">
                   +91 98765 43210
                 </a>
-              </li>
-              <li className="flex items-center gap-3">
+              </motion.li>
+              <motion.li
+                className="flex items-center gap-3"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: 0.4, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+              >
                 <Mail className="w-4 h-4 text-accent shrink-0" />
                 <a href="mailto:info@srivedarealestate.com" className="text-white/50 hover:text-accent text-sm transition-colors">
                   info@srivedarealestate.com
                 </a>
-              </li>
+              </motion.li>
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Bottom bar */}
       <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <motion.div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+        >
           <p className="text-white/30 text-sm">
             © {new Date().getFullYear()} Sri Veda Real Estates Ongole. All rights reserved.
           </p>
           <p className="text-white/20 text-xs">
             Approved Plots in Ongole | Real Estate Ongole | Property in Ongole
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll to top */}

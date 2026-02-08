@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import {
   PhoneCall,
   AtSign,
@@ -52,7 +51,6 @@ const contactInfo = [
 ];
 
 const Contact = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -72,7 +70,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 bg-white overflow-hidden" ref={ref}>
+    <section id="contact" className="relative py-24 lg:py-32 bg-white overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -83,24 +81,27 @@ const Contact = () => {
           <motion.span
             className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             Get in Touch
           </motion.span>
           <motion.h2
             className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-primary mb-6"
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
             Contact <span className="text-accent">Us Today</span>
           </motion.h2>
           <motion.p
             className="text-gray-600 text-lg"
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
           >
             Ready to invest in your dream property? Reach out and let our experts guide you.
           </motion.p>
@@ -113,9 +114,10 @@ const Contact = () => {
               <motion.div
                 key={i}
                 className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-transparent overflow-hidden"
-                initial={{ opacity: 0, x: -30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.2 + i * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: 0.1 * i, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{ x: 8, scale: 1.02 }}
               >
                 {/* Gradient background on hover */}
@@ -147,9 +149,10 @@ const Contact = () => {
             {/* Social links */}
             <motion.div
               className="pt-6 mt-6 border-t border-gray-100"
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: 0.4, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             >
               <p className="text-sm text-gray-500 mb-3">Follow Us</p>
               <div className="flex gap-3">
@@ -180,9 +183,10 @@ const Contact = () => {
           {/* Contact form */}
           <motion.div
             className="lg:col-span-3"
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
             <div className="relative bg-gradient-to-br from-accent/5 via-primary/5 to-purple-500/5 rounded-3xl p-1 shadow-xl">
               <form
@@ -200,7 +204,13 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                <motion.div
+                  className="grid sm:grid-cols-2 gap-6 mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ delay: 0.2, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                >
                   <div className="relative">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Full Name *
@@ -235,9 +245,15 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                <motion.div
+                  className="grid sm:grid-cols-2 gap-6 mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ delay: 0.3, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                >
                   <div className="relative">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Email Address
@@ -273,9 +289,15 @@ const Contact = () => {
                       <option value="houses">Ready to Move Houses</option>
                     </select>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="mb-7">
+                <motion.div
+                  className="mb-7"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ delay: 0.4, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                >
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Message
                   </label>
@@ -290,7 +312,7 @@ const Contact = () => {
                       className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-gray-50 border-2 border-transparent text-primary placeholder:text-gray-400 focus:outline-none focus:border-accent focus:bg-white transition-all resize-none"
                     />
                   </div>
-                </div>
+                </motion.div>
 
                 <motion.button
                   type="submit"
