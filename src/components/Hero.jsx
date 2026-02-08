@@ -184,69 +184,34 @@ const Hero = () => {
             <div className="relative">
               {/* Main property showcase */}
               <motion.div
-                className="relative z-10 rounded-3xl overflow-hidden shadow-2xl"
+                className="relative z-10 rounded-3xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm p-6"
                 initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
                 animate={inView ? { opacity: 1, scale: 1, rotateY: 0 } : {}}
                 transition={{ duration: 1, delay: 0.5 }}
               >
-                <img
-                  src={`${import.meta.env.BASE_URL}images/property1.jpg`}
-                  alt="Premium Real Estate Property"
-                  className="w-full h-[500px] object-cover"
+                {/* Promotional Image */}
+                <motion.img
+                  src={`${import.meta.env.BASE_URL}images/plots-for-sale-promo.jpg`}
+                  alt="Plots for Sale - Sri Veda Real Estates"
+                  className="w-full h-auto object-contain rounded-2xl"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
                 />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
 
-                {/* Property info overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <div className="grid grid-cols-2 gap-4 mb-4">
-                    {[
-                      {
-                        icon: Home,
-                        title: 'Open Plots',
-                        desc: 'DTCP Approved',
-                      },
-                      {
-                        icon: TrendingUp,
-                        title: 'Investment',
-                        desc: 'High Returns',
-                      },
-                      {
-                        icon: Shield,
-                        title: 'Approved',
-                        desc: 'RERA Certified',
-                      },
-                      {
-                        icon: MapPin,
-                        title: 'Prime Location',
-                        desc: 'Ongole',
-                      },
-                    ].map((item, i) => (
-                      <motion.div
-                        key={i}
-                        className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 hover:bg-white/15 transition-all cursor-pointer group"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={inView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ delay: 0.8 + i * 0.1 }}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <item.icon className="w-5 h-5 text-accent mb-1 group-hover:scale-110 transition-transform" />
-                        <h4 className="font-poppins font-semibold text-xs mb-0.5">
-                          {item.title}
-                        </h4>
-                        <p className="text-white/60 text-[10px]">{item.desc}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
+                {/* Glow effect around the promotional image */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-accent/20 via-blue-500/20 to-emerald-400/20 blur-2xl opacity-0 group-hover:opacity-100 -z-10"
+                  animate={{ opacity: [0.3, 0.6, 0.3] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                />
 
                 {/* Decorative badge */}
                 <motion.div
-                  className="absolute top-4 right-4 bg-accent text-primary font-bold text-xs px-4 py-2 rounded-full shadow-lg"
-                  animate={{ rotate: [0, 5, -5, 0] }}
+                  className="absolute -top-3 -right-3 bg-gradient-to-r from-accent via-emerald-400 to-teal-400 text-primary font-bold text-xs px-5 py-2.5 rounded-full shadow-xl"
+                  animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
-                  Best Deals
+                  ⭐ Featured Property
                 </motion.div>
               </motion.div>
 
