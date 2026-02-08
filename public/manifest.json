@@ -1,0 +1,21 @@
+{
+  "name": "Sri Veda Real Estates - Premium Plots in Ongole",
+  "short_name": "Sri Veda Estates",
+  "description": "Premium DTCP approved plots, investment lands, and ready-to-move houses in Ongole, Andhra Pradesh",
+  "start_url": "/sri-veda-real-estates/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/sri-veda-real-estates/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "real-estate"],
+  "lang": "en-IN",
+  "dir": "ltr"
+}

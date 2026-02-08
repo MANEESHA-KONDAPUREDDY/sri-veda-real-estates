@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Building2, Facebook, Youtube, Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
 
@@ -211,4 +212,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default React.memo(Footer);

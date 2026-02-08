@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   MapPin,
@@ -129,6 +130,8 @@ const Services = () => {
                   src={getImagePath(service.image)}
                   alt={service.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 {/* Gradient overlay on image */}
@@ -186,4 +189,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default React.memo(Services);

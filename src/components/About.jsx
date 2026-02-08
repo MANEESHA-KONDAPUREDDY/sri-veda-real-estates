@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Users, Target, Sparkles } from 'lucide-react';
 
@@ -53,6 +54,8 @@ const About = () => {
                   src={`${import.meta.env.BASE_URL}images/property2.jpeg`}
                   alt="Sri Veda Real Estates - Premium Properties"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 {/* Overlay with stats */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent flex items-end p-8">
@@ -183,4 +186,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default React.memo(About);

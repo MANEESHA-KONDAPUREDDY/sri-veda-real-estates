@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MapPin } from 'lucide-react';
 
@@ -205,6 +206,8 @@ const Hero = () => {
                   src={`${import.meta.env.BASE_URL}images/plots-for-sale-promo.jpg`}
                   alt="Plots for Sale - Sri Veda Real Estates"
                   className="w-full h-auto object-contain rounded-2xl"
+                  loading="lazy"
+                  decoding="async"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -260,4 +263,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default React.memo(Hero);

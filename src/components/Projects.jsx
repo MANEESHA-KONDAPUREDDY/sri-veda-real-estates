@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Maximize, ArrowUpRight, BadgeCheck } from 'lucide-react';
 
@@ -177,6 +177,8 @@ const Projects = () => {
                     src={getImagePath(project.image)}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent" />
 
@@ -256,4 +258,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default React.memo(Projects);

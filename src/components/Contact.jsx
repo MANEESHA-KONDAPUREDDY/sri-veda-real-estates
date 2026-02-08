@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   PhoneCall,
@@ -338,4 +338,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default React.memo(Contact);
