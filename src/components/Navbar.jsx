@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Building2, Phone, Mail, ChevronDown } from 'lucide-react';
+import { Menu, X, Building2, Phone, Mail, ChevronRight, Sparkles } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -22,13 +22,13 @@ const Navbar = () => {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 20);
+          setIsScrolled(window.scrollY > 15);
 
           // Update active link based on scroll position
           const sections = navLinks.map(link => link.href.substring(1));
           for (const section of sections.reverse()) {
             const el = document.getElementById(section);
-            if (el && window.scrollY >= el.offsetTop - 200) {
+            if (el && window.scrollY >= el.offsetTop - 150) {
               setActiveLink(`#${section}`);
               break;
             }
@@ -49,7 +49,14 @@ const Navbar = () => {
     setIsMobileOpen(false);
     const el = document.querySelector(href);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -57,24 +64,25 @@ const Navbar = () => {
     <>
       {/* Top bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 z-50 bg-primary text-white/80 text-xs py-2 px-4 will-change-transform"
-        initial={{ y: -50 }}
-        animate={{ y: isScrolled ? -50 : 0 }}
-        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary via-primary-light to-primary text-white/90 text-xs py-2.5 px-4 will-change-transform border-b border-gold/10"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: isScrolled ? -50 : 0, opacity: isScrolled ? 0 : 1 }}
+        transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <a href="tel:+919876543210" className="flex items-center gap-1 hover:text-accent transition-colors">
-              <Phone className="w-3 h-3" />
-              <span>+91 98765 43210</span>
+            <a href="tel:+919876543210" className="flex items-center gap-1.5 hover:text-gold transition-all duration-300 group">
+              <Phone className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+              <span className="font-medium">+91 98765 43210</span>
             </a>
-            <a href="mailto:info@srivedarealestate.com" className="flex items-center gap-1 hover:text-accent transition-colors">
-              <Mail className="w-3 h-3" />
-              <span>info@srivedarealestate.com</span>
+            <a href="mailto:info@srivedarealestate.com" className="flex items-center gap-1.5 hover:text-gold transition-all duration-300 group hidden sm:flex">
+              <Mail className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+              <span className="font-medium">info@srivedarealestate.com</span>
             </a>
           </div>
-          <div className="hidden md:flex items-center gap-4">
-            <span>Ongole, Andhra Pradesh</span>
+          <div className="hidden md:flex items-center gap-2">
+            <Sparkles className="w-3.5 h-3.5 text-gold" />
+            <span className="font-medium">Ongole, Andhra Pradesh</span>
           </div>
         </div>
       </motion.div>
@@ -83,11 +91,11 @@ const Navbar = () => {
       <motion.nav
         className={`fixed left-0 right-0 z-40 will-change-transform ${
           isScrolled
-            ? 'top-0 bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200/50 py-3'
-            : 'top-8 bg-white/5 backdrop-blur-sm py-5'
+            ? 'top-0 bg-white/98 backdrop-blur-xl shadow-xl border-b border-gray-100 py-3'
+            : 'top-8 bg-white/10 backdrop-blur-md border-b border-white/20 py-4'
         }`}
         style={{
-          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+          transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -98,24 +106,30 @@ const Navbar = () => {
             {/* Logo */}
             <motion.a
               href="#home"
-              className="flex items-center gap-3 group"
-              whileHover={{ scale: 1.03 }}
+              className="flex items-center gap-3 group cursor-pointer"
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
-              onClick={() => handleNavClick('#home')}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('#home');
+              }}
             >
               <motion.div
                 className="relative"
-                whileHover={{ rotate: [0, -8, 8, 0] }}
-                transition={{ duration: 0.4 }}
+                whileHover={{ rotate: [0, -5, 5, -5, 0] }}
+                transition={{ duration: 0.5 }}
               >
-                <Building2 className="w-9 h-9 text-accent transition-all duration-300" strokeWidth={1.5} />
-                <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md group-hover:bg-accent/30 transition-all duration-200" />
+                <Building2 className="w-10 h-10 text-accent drop-shadow-lg" strokeWidth={2} />
+                <motion.div
+                  className="absolute -inset-2 bg-gradient-to-r from-accent/20 to-gold/20 rounded-full blur-lg opacity-0 group-hover:opacity-100"
+                  transition={{ duration: 0.3 }}
+                />
               </motion.div>
               <div>
-                <h1 className={`text-xl font-poppins font-bold leading-none transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-white'}`}>
+                <h1 className={`text-xl font-poppins font-bold leading-none transition-all duration-300 ${isScrolled ? 'text-primary' : 'text-white drop-shadow-md'}`}>
                   Sri Veda
                 </h1>
-                <p className="text-[10px] text-accent tracking-[0.25em] uppercase transition-opacity duration-300">
+                <p className="text-[10px] text-accent font-semibold tracking-[0.25em] uppercase">
                   Real Estates
                 </p>
               </div>
@@ -131,28 +145,28 @@ const Navbar = () => {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className={`relative px-5 py-2.5 text-sm font-medium rounded-lg ${
+                  className={`relative px-5 py-2.5 text-sm font-semibold rounded-xl cursor-pointer ${
                     activeLink === link.href
                       ? 'text-accent'
                       : isScrolled
-                        ? 'text-gray-700 hover:text-accent hover:bg-accent/5'
-                        : 'text-white/80 hover:text-white hover:bg-white/10'
+                        ? 'text-gray-700 hover:text-accent hover:bg-gradient-to-r hover:from-accent/5 hover:to-gold/5'
+                        : 'text-white/90 hover:text-white hover:bg-white/15'
                   }`}
                   style={{
-                    transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   }}
-                  initial={{ opacity: 0, y: -20 }}
+                  initial={{ opacity: 0, y: -15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 * i, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ y: -3 }}
+                  whileTap={{ scale: 0.97 }}
                 >
                   {link.name}
                   {activeLink === link.href && (
                     <motion.div
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-1 bg-accent rounded-full shadow-lg shadow-accent/50"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-accent via-gold to-accent rounded-full shadow-lg"
                       layoutId="activeNav"
-                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
                 </motion.a>
@@ -166,40 +180,58 @@ const Navbar = () => {
                 e.preventDefault();
                 handleNavClick('#contact');
               }}
-              className="hidden lg:flex items-center gap-2 bg-accent text-primary font-semibold px-6 py-3 rounded-full text-sm relative overflow-hidden group"
-              style={{
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                boxShadow: '0 4px 14px 0 rgba(9, 237, 140, 0.25)',
-              }}
-              whileHover={{ scale: 1.05, y: -2, boxShadow: '0 8px 20px 0 rgba(9, 237, 140, 0.35)' }}
+              className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-accent to-gold text-white font-bold px-6 py-3 rounded-full text-sm relative overflow-hidden group cursor-pointer shadow-lg"
+              whileHover={{ scale: 1.06, y: -2 }}
               whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: 0.4, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
               <span className="relative z-10">Get in Touch</span>
-              <ChevronDown className="w-4 h-4 rotate-[-90deg] relative z-10 transition-transform duration-200 group-hover:translate-x-1" />
+              <ChevronRight className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-accent to-emerald-400 opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 bg-gradient-to-r from-gold to-accent opacity-0 group-hover:opacity-100"
                 transition={{ duration: 0.3 }}
               />
             </motion.a>
 
             {/* Mobile toggle */}
             <motion.button
-              className={`lg:hidden p-2 rounded-lg ${
+              className={`lg:hidden p-2.5 rounded-xl ${
                 isScrolled
-                  ? 'text-primary hover:bg-gray-100'
-                  : 'text-white hover:bg-white/10'
+                  ? 'text-primary hover:bg-accent/10'
+                  : 'text-white hover:bg-white/15'
               }`}
               style={{
-                transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+                transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
               }}
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
             >
-              {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <AnimatePresence mode="wait">
+                {isMobileOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <X className="w-6 h-6" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Menu className="w-6 h-6" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.button>
           </div>
         </div>
@@ -209,13 +241,13 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            className="fixed inset-0 z-30 bg-primary/98 backdrop-blur-xl lg:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-30 bg-gradient-to-br from-primary via-primary-light to-primary backdrop-blur-xl lg:hidden"
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
           >
-            <div className="flex flex-col items-center justify-center h-full gap-6">
+            <div className="flex flex-col items-center justify-center h-full gap-6 px-6">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.name}
@@ -224,14 +256,15 @@ const Navbar = () => {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className={`text-2xl font-poppins font-medium ${
-                    activeLink === link.href ? 'text-accent' : 'text-white/80'
-                  }`}
-                  initial={{ opacity: 0, x: -50 }}
+                  className={`text-2xl font-poppins font-bold ${
+                    activeLink === link.href ? 'text-accent' : 'text-white/90'
+                  } hover:text-accent transition-all duration-300`}
+                  initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 50 }}
-                  transition={{ delay: 0.1 * i }}
-                  whileHover={{ scale: 1.1, color: '#09ed8c' }}
+                  exit={{ opacity: 0, x: 30 }}
+                  transition={{ delay: 0.08 * i, duration: 0.3 }}
+                  whileHover={{ scale: 1.1, x: 10 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {link.name}
                 </motion.a>
@@ -242,11 +275,13 @@ const Navbar = () => {
                   e.preventDefault();
                   handleNavClick('#contact');
                 }}
-                className="mt-4 bg-accent text-primary font-semibold px-8 py-3 rounded-full text-lg"
+                className="mt-6 bg-gradient-to-r from-accent to-gold text-white font-bold px-10 py-4 rounded-full text-lg shadow-xl"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 30 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.4, duration: 0.4 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Get in Touch
               </motion.a>

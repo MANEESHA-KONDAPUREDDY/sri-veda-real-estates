@@ -18,8 +18,8 @@ const services = [
     title: 'Open Plots',
     description:
       'Premium open plots in prime locations of Ongole with clear titles and all necessary approvals for immediate construction.',
-    color: 'from-emerald-500 to-teal-600',
-    shadowColor: 'shadow-emerald-500/20',
+    color: 'from-amber-500 to-orange-600',
+    shadowColor: 'shadow-amber-500/20',
     image: 'images/service-open-plots.jpg',
   },
   {
@@ -36,7 +36,7 @@ const services = [
     title: 'Investment Lands',
     description:
       'Strategic investment lands with high appreciation potential. Our properties have consistently delivered excellent returns.',
-    color: 'from-amber-500 to-orange-600',
+    color: 'from-gold to-amber-600',
     shadowColor: 'shadow-amber-500/20',
     image: 'images/service-investment.jpg',
   },
@@ -45,8 +45,8 @@ const services = [
     title: 'DTCP Approved Plots',
     description:
       'Government-approved layouts with DTCP clearance, ensuring complete legal safety and peace of mind for your investment.',
-    color: 'from-purple-500 to-violet-600',
-    shadowColor: 'shadow-purple-500/20',
+    color: 'from-amber-400 to-orange-500',
+    shadowColor: 'shadow-amber-400/20',
     image: 'images/service-dtcp-plots.jpg',
   },
   {
@@ -54,8 +54,8 @@ const services = [
     title: 'Property Consultation',
     description:
       'Expert guidance and consultation for all your real estate needs. We help you make informed decisions for maximum value.',
-    color: 'from-rose-500 to-pink-600',
-    shadowColor: 'shadow-rose-500/20',
+    color: 'from-blue-400 to-indigo-500',
+    shadowColor: 'shadow-blue-400/20',
     image: 'images/service-consultation.jpg',
   },
   {
@@ -63,8 +63,8 @@ const services = [
     title: 'Venture Development',
     description:
       'End-to-end venture development with modern infrastructure, landscaping, and all essential amenities for comfortable living.',
-    color: 'from-cyan-500 to-blue-600',
-    shadowColor: 'shadow-cyan-500/20',
+    color: 'from-orange-500 to-amber-600',
+    shadowColor: 'shadow-orange-500/20',
     image: 'images/service-development.jpg',
   },
 ];
@@ -116,7 +116,7 @@ const Services = () => {
               className="group relative bg-white rounded-3xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-transparent"
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 * i, duration: 0.6 }}
+              transition={{ delay: 0.1 * i, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
               whileHover={{ y: -12, scale: 1.02 }}
             >
               {/* Gradient overlay that appears on hover */}
@@ -160,9 +160,10 @@ const Services = () => {
                 <motion.button
                   className={`inline-flex items-center gap-2 text-accent font-bold text-base px-6 py-3 rounded-xl bg-gradient-to-r ${service.color} bg-clip-text hover:bg-accent/10 transition-all duration-300`}
                   whileHover={{ x: 5 }}
+                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                 >
                   <span>Learn More</span>
-                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                 </motion.button>
 
                 {/* Decorative dot pattern */}

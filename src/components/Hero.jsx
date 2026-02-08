@@ -19,26 +19,26 @@ const Hero = () => {
         <motion.div
           className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full opacity-20"
           style={{
-            background: 'radial-gradient(circle, rgba(9, 237, 140, 0.3), transparent 70%)',
+            background: 'radial-gradient(circle, rgba(245, 158, 11, 0.3), transparent 70%)',
           }}
           animate={{
             scale: [1, 1.2, 1],
             x: [0, 50, 0],
             y: [0, -30, 0],
           }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 8, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
         />
         <motion.div
           className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full opacity-10"
           style={{
-            background: 'radial-gradient(circle, rgba(212, 168, 83, 0.4), transparent 70%)',
+            background: 'radial-gradient(circle, rgba(217, 119, 6, 0.4), transparent 70%)',
           }}
           animate={{
             scale: [1.2, 1, 1.2],
             x: [0, -30, 0],
             y: [0, 50, 0],
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 10, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
         />
 
         {/* Grid pattern */}
@@ -97,9 +97,9 @@ const Hero = () => {
               <span className="relative inline-block">
                 <span className="gradient-text relative z-10">Dream Property</span>
                 <motion.span
-                  className="absolute -inset-1 bg-gradient-to-r from-accent/30 to-emerald-400/30 blur-xl -z-10"
+                  className="absolute -inset-1 bg-gradient-to-r from-accent/30 to-orange-500/30 blur-xl -z-10"
                   animate={{ opacity: [0.5, 0.8, 0.5] }}
-                  transition={{ duration: 3, repeat: Infinity }}
+                  transition={{ duration: 3, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
                 />
               </span>
               <br />
@@ -124,16 +124,16 @@ const Hero = () => {
             >
               <motion.a
                 href="#projects"
-                className="group relative flex items-center gap-2 bg-gradient-to-r from-accent via-emerald-400 to-teal-400 hover:from-emerald-400 hover:to-accent text-primary font-bold px-8 py-4 rounded-full text-sm transition-all overflow-hidden"
-                style={{ boxShadow: '0 10px 40px rgba(9, 237, 140, 0.4)' }}
-                whileHover={{ scale: 1.08, y: -2, boxShadow: '0 15px 50px rgba(9, 237, 140, 0.5)' }}
+                className="group relative flex items-center gap-2 bg-gradient-to-r from-accent via-amber-400 to-orange-500 hover:from-orange-500 hover:to-accent text-primary font-bold px-8 py-4 rounded-full text-sm transition-all overflow-hidden"
+                style={{ boxShadow: '0 10px 40px rgba(245, 158, 11, 0.4)' }}
+                whileHover={{ scale: 1.08, y: -2, boxShadow: '0 15px 50px rgba(245, 158, 11, 0.5)' }}
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div
                   className="absolute inset-0 bg-white/30"
                   initial={{ x: '-100%', skewX: -20 }}
                   whileHover={{ x: '200%' }}
-                  transition={{ duration: 0.7 }}
+                  transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
                 />
                 <span className="relative">Explore Properties</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform relative" />
@@ -145,10 +145,10 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-accent/20 to-emerald-400/20"
+                  className="absolute inset-0 bg-gradient-to-r from-accent/20 to-orange-500/20"
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                 />
                 <span className="relative">Contact Us</span>
               </motion.a>
@@ -200,16 +200,16 @@ const Hero = () => {
 
                 {/* Glow effect around the promotional image */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-accent/20 via-blue-500/20 to-emerald-400/20 blur-2xl opacity-0 group-hover:opacity-100 -z-10"
+                  className="absolute inset-0 bg-gradient-to-br from-accent/20 via-blue-500/20 to-orange-500/20 blur-2xl opacity-0 group-hover:opacity-100 -z-10"
                   animate={{ opacity: [0.3, 0.6, 0.3] }}
-                  transition={{ duration: 4, repeat: Infinity }}
+                  transition={{ duration: 4, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
                 />
 
                 {/* Decorative badge */}
                 <motion.div
-                  className="absolute -top-3 -right-3 bg-gradient-to-r from-accent via-emerald-400 to-teal-400 text-primary font-bold text-xs px-5 py-2.5 rounded-full shadow-xl"
+                  className="absolute -top-3 -right-3 bg-gradient-to-r from-accent via-amber-400 to-orange-500 text-primary font-bold text-xs px-5 py-2.5 rounded-full shadow-xl"
                   animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1] }}
-                  transition={{ duration: 3, repeat: Infinity }}
+                  transition={{ duration: 3, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
                 >
                   ⭐ Featured Property
                 </motion.div>

@@ -17,7 +17,7 @@ const projects = [
     price: 'Starting ₹15L',
     featured: true,
     image: 'images/open-plots.png',
-    gradient: 'from-emerald-400/20 to-teal-500/20',
+    gradient: 'from-amber-400/20 to-orange-500/20',
   },
   {
     title: 'Green Valley Venture',
@@ -39,7 +39,7 @@ const projects = [
     price: 'Starting ₹22L',
     featured: true,
     image: 'images/property3.jpg',
-    gradient: 'from-purple-400/20 to-pink-500/20',
+    gradient: 'from-gold/20 to-amber-500/20',
   },
   {
     title: 'Veda Heights',
@@ -61,7 +61,7 @@ const projects = [
     price: 'Starting ₹35L',
     featured: false,
     image: 'images/property4.jpg',
-    gradient: 'from-rose-400/20 to-red-500/20',
+    gradient: 'from-blue-500/20 to-indigo-600/20',
   },
   {
     title: 'Sri Veda Nagar Phase 2',
@@ -72,7 +72,7 @@ const projects = [
     price: 'Starting ₹12L',
     featured: true,
     image: 'images/open-plots.png',
-    gradient: 'from-cyan-400/20 to-blue-500/20',
+    gradient: 'from-orange-400/20 to-amber-600/20',
   },
 ];
 
@@ -95,9 +95,9 @@ const Projects = () => {
       />
       <motion.div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-        style={{ background: 'radial-gradient(circle, rgba(9, 237, 140, 0.3), transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(245, 158, 11, 0.3), transparent 70%)' }}
         animate={{ scale: [1, 1.3, 1] }}
-        transition={{ duration: 10, repeat: Infinity }}
+        transition={{ duration: 10, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -164,7 +164,7 @@ const Projects = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
                 className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/20"
                 whileHover={{ y: -12, scale: 1.02 }}
               >
@@ -186,8 +186,9 @@ const Projects = () => {
                   <motion.div
                     className="absolute top-4 left-4"
                     whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                   >
-                    <span className="inline-flex items-center gap-1 bg-gradient-to-r from-accent to-emerald-400 text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                    <span className="inline-flex items-center gap-1 bg-gradient-to-r from-accent to-orange-500 text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                       <BadgeCheck className="w-3 h-3" />
                       {project.status}
                     </span>
@@ -208,9 +209,9 @@ const Projects = () => {
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                     <motion.div
-                      className="w-14 h-14 bg-gradient-to-br from-accent to-emerald-400 rounded-full flex items-center justify-center cursor-pointer shadow-xl"
+                      className="w-14 h-14 bg-gradient-to-br from-accent to-orange-500 rounded-full flex items-center justify-center cursor-pointer shadow-xl"
                       whileHover={{ scale: 1.3, rotate: 90 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                     >
                       <ArrowUpRight className="w-6 h-6 text-primary font-bold" strokeWidth={3} />
                     </motion.div>

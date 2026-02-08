@@ -115,7 +115,7 @@ const Contact = () => {
                 className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-transparent overflow-hidden"
                 initial={{ opacity: 0, x: -30 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.2 + i * 0.1, duration: 0.6 }}
+                transition={{ delay: 0.2 + i * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{ x: 8, scale: 1.02 }}
               >
                 {/* Gradient background on hover */}
@@ -159,6 +159,7 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-primary/5 hover:bg-accent hover:text-white rounded-xl flex items-center justify-center text-primary transition-all"
                   whileHover={{ scale: 1.1, y: -3 }}
+                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                 >
                   <Facebook className="w-4 h-4" />
                 </motion.a>
@@ -166,8 +167,9 @@ const Contact = () => {
                   href="https://www.youtube.com/channel/UC79q-p2bDv8B6QI_viNh4dg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-primary/5 hover:bg-red rounded:xl flex items-center justify-center text-primary hover:text-white rounded-xl transition-all"
+                  className="w-10 h-10 bg-primary/5 hover:bg-red rounded-xl flex items-center justify-center text-primary hover:text-white transition-all"
                   whileHover={{ scale: 1.1, y: -3 }}
+                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                 >
                   <Youtube className="w-4 h-4" />
                 </motion.a>

@@ -41,14 +41,14 @@ const About = () => {
             className="relative"
             initial={{ opacity: 0, x: -80 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
           >
             <div className="relative">
               {/* Main property image */}
               <motion.div
                 className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl"
                 whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
               >
                 <img
                   src={`${import.meta.env.BASE_URL}images/property2.jpeg`}
@@ -142,16 +142,16 @@ const About = () => {
                   className="group relative flex items-start gap-3 p-5 rounded-2xl border border-gray-100 hover:border-transparent bg-white hover:shadow-xl transition-all duration-500 cursor-default overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.5 + i * 0.1, duration: 0.6 }}
+                  transition={{ delay: 0.5 + i * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                   whileHover={{ x: 5, y: -5 }}
                 >
                   {/* Gradient background on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-emerald-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-amber-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <motion.div
-                    className="relative w-12 h-12 bg-gradient-to-br from-accent/20 to-emerald-400/20 rounded-xl flex items-center justify-center shrink-0 group-hover:from-accent/30 group-hover:to-emerald-400/30 transition-all duration-300"
+                    className="relative w-12 h-12 bg-gradient-to-br from-accent/20 to-orange-500/20 rounded-xl flex items-center justify-center shrink-0 group-hover:from-accent/30 group-hover:to-orange-500/30 transition-all duration-300"
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                   >
                     <feature.icon className="w-6 h-6 text-accent" strokeWidth={2.5} />
                   </motion.div>

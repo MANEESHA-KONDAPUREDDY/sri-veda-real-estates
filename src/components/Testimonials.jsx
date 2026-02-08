@@ -123,7 +123,7 @@ const Testimonials = () => {
                     {[...Array(testimonial.rating)].map((_, j) => (
                       <Star
                         key={j}
-                        className="w-4 h-4 text-amber-400 fill-amber-400"
+                        className="w-4 h-4 text-amber-500 fill-amber-500"
                       />
                     ))}
                   </div>
