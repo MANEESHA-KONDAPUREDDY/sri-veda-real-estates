@@ -3,15 +3,15 @@
 @theme {
   --font-lato: 'Lato', sans-serif;
   --font-poppins: 'Poppins', sans-serif;
-  --color-primary: #1e3a8a;
-  --color-primary-light: #3b82f6;
-  --color-accent: #f59e0b;
-  --color-accent-dark: #d97706;
-  --color-secondary: #0891b2;
-  --color-red: #ef4444;
-  --color-gold: #eab308;
-  --color-dark: #0f172a;
-  --color-gray-light: #f8f9fa;
+  --color-primary: #8B1538;
+  --color-primary-light: #A52A4A;
+  --color-accent: #D4AF37;
+  --color-accent-dark: #B8942A;
+  --color-secondary: #B87333;
+  --color-red: #DC2626;
+  --color-gold: #F4C430;
+  --color-dark: #3D0814;
+  --color-gray-light: #FFF8F0;
   --color-success: #10b981;
 }
 
@@ -44,21 +44,21 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e3a8a;
+  background: #8B1538;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #f59e0b, #eab308);
+  background: linear-gradient(180deg, #D4AF37, #F4C430);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #d97706, #f59e0b);
+  background: linear-gradient(180deg, #F4C430, #D4AF37);
 }
 
 /* Swiper custom styles */
 .swiper-pagination-bullet {
-  background: #f59e0b !important;
+  background: #D4AF37 !important;
   opacity: 0.5;
   transition: all 0.3s ease;
 }
@@ -70,7 +70,7 @@
 
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #f59e0b, #eab308, #0891b2);
+  background: linear-gradient(135deg, #D4AF37, #F4C430, #B87333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -124,8 +124,8 @@
 
 /* Pulse glow animation */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.4), 0 0 60px rgba(234, 179, 8, 0.2); }
-  50% { box-shadow: 0 0 50px rgba(245, 158, 11, 0.6), 0 0 100px rgba(234, 179, 8, 0.3); }
+  0%, 100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(244, 196, 48, 0.2); }
+  50% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.6), 0 0 100px rgba(244, 196, 48, 0.3); }
 }
 
 .animate-pulse-glow {

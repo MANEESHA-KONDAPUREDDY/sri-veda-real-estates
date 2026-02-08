@@ -27,8 +27,8 @@ const services = [
     title: 'Ready to Move Houses',
     description:
       'Beautifully designed houses ready for immediate possession with modern amenities and world-class construction quality.',
-    color: 'from-blue-500 to-indigo-600',
-    shadowColor: 'shadow-blue-500/20',
+    color: 'from-rose-800 to-red-900',
+    shadowColor: 'shadow-rose-800/20',
     image: 'images/service-ready-house.jpg',
   },
   {
@@ -54,8 +54,8 @@ const services = [
     title: 'Property Consultation',
     description:
       'Expert guidance and consultation for all your real estate needs. We help you make informed decisions for maximum value.',
-    color: 'from-blue-400 to-indigo-500',
-    shadowColor: 'shadow-blue-400/20',
+    color: 'from-rose-700 to-red-800',
+    shadowColor: 'shadow-rose-700/20',
     image: 'images/service-consultation.jpg',
   },
   {

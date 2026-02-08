@@ -214,7 +214,7 @@ const Hero = () => {
 
                 {/* Glow effect around the promotional image */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-accent/20 via-blue-500/20 to-orange-500/20 blur-2xl opacity-0 group-hover:opacity-100 -z-10"
+                  className="absolute inset-0 bg-gradient-to-br from-accent/20 via-rose-800/20 to-orange-500/20 blur-2xl opacity-0 group-hover:opacity-100 -z-10"
                   animate={{ opacity: [0.3, 0.6, 0.3] }}
                   transition={{ duration: 4, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
                 />

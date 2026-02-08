@@ -20,25 +20,25 @@ const contactInfo = [
     icon: PhoneCall,
     title: 'Call Us',
     details: ['+91 98765 43210', '+91 87654 32109'],
-    color: 'from-emerald-400 via-teal-500 to-cyan-600',
-    iconBg: 'bg-gradient-to-br from-emerald-50 to-teal-50',
-    iconColor: 'text-emerald-600',
+    color: 'from-amber-400 via-orange-500 to-amber-600',
+    iconBg: 'bg-gradient-to-br from-amber-50 to-orange-50',
+    iconColor: 'text-amber-600',
   },
   {
     icon: AtSign,
     title: 'Email Us',
     details: ['info@srivedarealestate.com', 'sales@srivedarealestate.com'],
-    color: 'from-blue-400 via-indigo-500 to-purple-600',
-    iconBg: 'bg-gradient-to-br from-blue-50 to-indigo-50',
-    iconColor: 'text-blue-600',
+    color: 'from-rose-700 via-rose-800 to-red-900',
+    iconBg: 'bg-gradient-to-br from-rose-50 to-red-50',
+    iconColor: 'text-rose-700',
   },
   {
     icon: MapPinned,
     title: 'Visit Us',
     details: ['Main Road, Ongole', 'Prakasam District, AP - 523001'],
-    color: 'from-purple-400 via-violet-500 to-fuchsia-600',
-    iconBg: 'bg-gradient-to-br from-purple-50 to-violet-50',
-    iconColor: 'text-purple-600',
+    color: 'from-rose-800 via-red-800 to-red-900',
+    iconBg: 'bg-gradient-to-br from-rose-50 to-red-50',
+    iconColor: 'text-rose-800',
   },
   {
     icon: CalendarClock,
@@ -188,14 +188,14 @@ const Contact = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
-            <div className="relative bg-gradient-to-br from-accent/5 via-primary/5 to-purple-500/5 rounded-3xl p-1 shadow-xl">
+            <div className="relative bg-gradient-to-br from-accent/5 via-primary/5 to-rose-800/5 rounded-3xl p-1 shadow-xl">
               <form
                 onSubmit={handleSubmit}
                 className="bg-white rounded-3xl p-8 lg:p-10"
               >
                 {/* Form header */}
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 bg-gradient-to-br from-accent to-emerald-400 rounded-2xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-accent to-orange-400 rounded-2xl flex items-center justify-center">
                     <Sparkles className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -316,7 +316,7 @@ const Contact = () => {
 
                 <motion.button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-accent to-emerald-400 hover:from-emerald-400 hover:to-accent text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-all group relative overflow-hidden"
+                  className="w-full bg-gradient-to-r from-accent to-orange-400 hover:from-orange-400 hover:to-accent text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-all group relative overflow-hidden"
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >

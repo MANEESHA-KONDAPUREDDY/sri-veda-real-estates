@@ -27,7 +27,7 @@ const projects = [
     price: 'Starting ₹18L',
     featured: false,
     image: 'images/property1.jpg',
-    gradient: 'from-blue-400/20 to-indigo-500/20',
+    gradient: 'from-rose-700/20 to-red-800/20',
   },
   {
     title: 'Royal Gardens',
@@ -60,7 +60,7 @@ const projects = [
     price: 'Starting ₹35L',
     featured: false,
     image: 'images/property4.jpg',
-    gradient: 'from-blue-500/20 to-indigo-600/20',
+    gradient: 'from-rose-800/20 to-red-900/20',
   },
   {
     title: 'Sri Veda Nagar Phase 2',

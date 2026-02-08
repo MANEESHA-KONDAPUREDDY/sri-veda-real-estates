@@ -13,7 +13,7 @@ const testimonials = [
     text: 'Sri Veda Real Estates helped me find the perfect investment plot in Ongole. The appreciation has been phenomenal, and their team was incredibly professional throughout the process.',
     rating: 5,
     initials: 'RK',
-    color: 'from-emerald-500 to-teal-600',
+    color: 'from-amber-500 to-orange-600',
   },
   {
     name: 'Lakshmi Devi',
@@ -21,7 +21,7 @@ const testimonials = [
     text: "We purchased our dream home through Sri Veda. The quality of construction and the location exceeded our expectations. Truly a trustworthy company in Ongole's real estate market.",
     rating: 5,
     initials: 'LD',
-    color: 'from-blue-500 to-indigo-600',
+    color: 'from-rose-800 to-red-900',
   },
   {
     name: 'Venkat Rao',
@@ -29,7 +29,7 @@ const testimonials = [
     text: 'I invested in their Green Valley venture and the returns have been amazing. Their DTCP approved plots give complete peace of mind. Highly recommended for safe investments.',
     rating: 5,
     initials: 'VR',
-    color: 'from-purple-500 to-violet-600',
+    color: 'from-rose-700 to-red-800',
   },
   {
     name: 'Suresh Babu',
