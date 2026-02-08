@@ -1,0 +1,11 @@
+# Robots.txt for Sri Veda Real Estates
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://maneesha-kondapureddy.github.io/sri-veda-real-estates/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
