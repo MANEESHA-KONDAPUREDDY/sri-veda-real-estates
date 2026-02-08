@@ -18,8 +18,8 @@ const services = [
     title: 'Open Plots',
     description:
       'Premium open plots in prime locations of Ongole with clear titles and all necessary approvals for immediate construction.',
-    color: 'from-amber-500 to-orange-600',
-    shadowColor: 'shadow-amber-500/20',
+    color: 'from-emerald-500 to-teal-600',
+    shadowColor: 'shadow-emerald-500/20',
     image: 'images/service-open-plots.jpg',
   },
   {
@@ -27,8 +27,8 @@ const services = [
     title: 'Ready to Move Houses',
     description:
       'Beautifully designed houses ready for immediate possession with modern amenities and world-class construction quality.',
-    color: 'from-rose-800 to-red-900',
-    shadowColor: 'shadow-rose-800/20',
+    color: 'from-teal-500 to-cyan-600',
+    shadowColor: 'shadow-teal-500/20',
     image: 'images/service-ready-house.jpg',
   },
   {
@@ -36,8 +36,8 @@ const services = [
     title: 'Investment Lands',
     description:
       'Strategic investment lands with high appreciation potential. Our properties have consistently delivered excellent returns.',
-    color: 'from-gold to-amber-600',
-    shadowColor: 'shadow-amber-500/20',
+    color: 'from-green-500 to-emerald-600',
+    shadowColor: 'shadow-green-500/20',
     image: 'images/service-investment.jpg',
   },
   {
@@ -45,8 +45,8 @@ const services = [
     title: 'DTCP Approved Plots',
     description:
       'Government-approved layouts with DTCP clearance, ensuring complete legal safety and peace of mind for your investment.',
-    color: 'from-amber-400 to-orange-500',
-    shadowColor: 'shadow-amber-400/20',
+    color: 'from-lime-500 to-green-600',
+    shadowColor: 'shadow-lime-500/20',
     image: 'images/service-dtcp-plots.jpg',
   },
   {
@@ -54,8 +54,8 @@ const services = [
     title: 'Property Consultation',
     description:
       'Expert guidance and consultation for all your real estate needs. We help you make informed decisions for maximum value.',
-    color: 'from-rose-700 to-red-800',
-    shadowColor: 'shadow-rose-700/20',
+    color: 'from-cyan-500 to-teal-600',
+    shadowColor: 'shadow-cyan-500/20',
     image: 'images/service-consultation.jpg',
   },
   {
@@ -63,18 +63,18 @@ const services = [
     title: 'Venture Development',
     description:
       'End-to-end venture development with modern infrastructure, landscaping, and all essential amenities for comfortable living.',
-    color: 'from-orange-500 to-amber-600',
-    shadowColor: 'shadow-orange-500/20',
+    color: 'from-emerald-400 to-green-600',
+    shadowColor: 'shadow-emerald-400/20',
     image: 'images/service-development.jpg',
   },
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="relative py-24 lg:py-32 bg-gray-light overflow-hidden">
+    <section id="services" className="relative py-24 lg:py-32 bg-gray-900 overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -89,16 +89,16 @@ const Services = () => {
             Our Services
           </motion.span>
           <motion.h2
-            className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-primary mb-6"
+            className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
-            What We <span className="text-accent">Offer</span>
+            What We <span className="text-emerald-400">Offer</span>
           </motion.h2>
           <motion.p
-            className="text-gray-600 text-lg"
+            className="text-gray-400 text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -114,7 +114,7 @@ const Services = () => {
           {services.map((service, i) => (
             <motion.div
               key={i}
-              className="group relative bg-white rounded-3xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-transparent"
+              className="group relative bg-gray-800 rounded-3xl hover:shadow-2xl hover:shadow-emerald-500/20 transition-all duration-500 overflow-hidden border border-gray-700 hover:border-emerald-500/50"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -142,7 +142,7 @@ const Services = () => {
                   className="absolute top-4 right-4"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                 >
-                  <span className="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-xl">
+                  <span className="inline-block bg-gradient-to-r from-amber-400 to-amber-500 text-gray-900 px-4 py-2 rounded-full text-sm font-bold shadow-xl">
                     ⭐ Premium
                   </span>
                 </motion.div>
@@ -153,16 +153,16 @@ const Services = () => {
 
               {/* Content */}
               <div className="relative p-7">
-                <h3 className="text-2xl font-poppins font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300">
+                <h3 className="text-2xl font-poppins font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors duration-300">
                   {service.title}
                 </h3>
 
-                <p className="text-gray-600 text-base leading-relaxed mb-6">
+                <p className="text-gray-400 text-base leading-relaxed mb-6">
                   {service.description}
                 </p>
 
                 <motion.button
-                  className={`inline-flex items-center gap-2 text-accent font-bold text-base px-6 py-3 rounded-xl bg-gradient-to-r ${service.color} bg-clip-text hover:bg-accent/10 transition-all duration-300`}
+                  className={`inline-flex items-center gap-2 text-emerald-400 font-bold text-base px-6 py-3 rounded-xl bg-gradient-to-r ${service.color} bg-clip-text hover:bg-emerald-500/10 transition-all duration-300`}
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                 >

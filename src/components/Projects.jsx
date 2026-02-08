@@ -16,7 +16,7 @@ const projects = [
     price: 'Starting ₹15L',
     featured: true,
     image: 'images/open-plots.png',
-    gradient: 'from-amber-400/20 to-orange-500/20',
+    gradient: 'from-emerald-500/20 to-teal-500/20',
   },
   {
     title: 'Green Valley Venture',
@@ -27,7 +27,7 @@ const projects = [
     price: 'Starting ₹18L',
     featured: false,
     image: 'images/property1.jpg',
-    gradient: 'from-rose-700/20 to-red-800/20',
+    gradient: 'from-teal-500/20 to-cyan-600/20',
   },
   {
     title: 'Royal Gardens',
@@ -38,7 +38,7 @@ const projects = [
     price: 'Starting ₹22L',
     featured: true,
     image: 'images/property3.jpg',
-    gradient: 'from-gold/20 to-amber-500/20',
+    gradient: 'from-green-500/20 to-emerald-600/20',
   },
   {
     title: 'Veda Heights',
@@ -49,7 +49,7 @@ const projects = [
     price: 'Starting ₹45L',
     featured: false,
     image: 'images/house1.webp',
-    gradient: 'from-amber-400/20 to-orange-500/20',
+    gradient: 'from-lime-500/20 to-green-600/20',
   },
   {
     title: 'Business Park',
@@ -60,7 +60,7 @@ const projects = [
     price: 'Starting ₹35L',
     featured: false,
     image: 'images/property4.jpg',
-    gradient: 'from-rose-800/20 to-red-900/20',
+    gradient: 'from-cyan-500/20 to-teal-600/20',
   },
   {
     title: 'Sri Veda Nagar Phase 2',
@@ -71,7 +71,7 @@ const projects = [
     price: 'Starting ₹12L',
     featured: true,
     image: 'images/open-plots.png',
-    gradient: 'from-orange-400/20 to-amber-600/20',
+    gradient: 'from-emerald-400/20 to-green-600/20',
   },
 ];
 
@@ -84,7 +84,7 @@ const Projects = () => {
       : projects.filter((p) => p.type === activeFilter);
 
   return (
-    <section id="projects" className="relative py-24 lg:py-32 bg-primary overflow-hidden">
+    <section id="projects" className="relative py-24 lg:py-32 bg-gray-800 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -93,7 +93,7 @@ const Projects = () => {
       />
       <motion.div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-        style={{ background: 'radial-gradient(circle, rgba(245, 158, 11, 0.3), transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(16, 185, 129, 0.3), transparent 70%)' }}
         animate={{ scale: [1, 1.3, 1] }}
         transition={{ duration: 10, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
       />
@@ -117,10 +117,10 @@ const Projects = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
-            Featured <span className="text-accent">Properties</span>
+            Featured <span className="text-emerald-400">Properties</span>
           </motion.h2>
           <motion.p
-            className="text-white/60 text-lg"
+            className="text-gray-400 text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -145,7 +145,7 @@ const Projects = () => {
               onClick={() => setActiveFilter(cat)}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                 activeFilter === cat
-                  ? 'bg-accent text-primary shadow-lg shadow-accent/25'
+                  ? 'bg-emerald-500 text-gray-900 shadow-lg shadow-emerald-500/25'
                   : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white border border-white/10'
               }`}
               whileHover={{ scale: 1.05 }}
@@ -168,7 +168,7 @@ const Projects = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
-                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/20"
+                className="group relative bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20"
                 whileHover={{ y: -12, scale: 1.02 }}
               >
                 {/* Image area */}
@@ -180,7 +180,7 @@ const Projects = () => {
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
 
                   {/* Animated gradient overlay */}
                   <motion.div
@@ -193,7 +193,7 @@ const Projects = () => {
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                   >
-                    <span className="inline-flex items-center gap-1 bg-gradient-to-r from-accent to-orange-500 text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                    <span className="inline-flex items-center gap-1 bg-gradient-to-r from-emerald-500 to-teal-500 text-gray-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                       <BadgeCheck className="w-3 h-3" />
                       {project.status}
                     </span>
@@ -205,20 +205,20 @@ const Projects = () => {
                       animate={{ rotate: [0, 5, -5, 0] }}
                       transition={{ duration: 3, repeat: Infinity }}
                     >
-                      <span className="bg-gradient-to-r from-gold to-amber-500 text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                      <span className="bg-gradient-to-r from-amber-400 to-amber-500 text-gray-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                         ⭐ Featured
                       </span>
                     </motion.div>
                   )}
 
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-emerald-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                     <motion.div
-                      className="w-14 h-14 bg-gradient-to-br from-accent to-orange-500 rounded-full flex items-center justify-center cursor-pointer shadow-xl"
+                      className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center cursor-pointer shadow-xl"
                       whileHover={{ scale: 1.3, rotate: 90 }}
                       transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                     >
-                      <ArrowUpRight className="w-6 h-6 text-primary font-bold" strokeWidth={3} />
+                      <ArrowUpRight className="w-6 h-6 text-gray-900 font-bold" strokeWidth={3} />
                     </motion.div>
                   </div>
                 </div>
@@ -228,21 +228,21 @@ const Projects = () => {
                   {/* Decorative gradient line */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${project.gradient.replace('/20', '')} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-                  <h3 className="text-lg font-poppins font-bold text-white mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="text-lg font-poppins font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
                     {project.title}
                   </h3>
-                  <div className="flex items-center gap-1.5 text-white/50 text-sm mb-4 group-hover:text-white/70 transition-colors">
-                    <MapPin className="w-4 h-4 text-accent" />
+                  <div className="flex items-center gap-1.5 text-gray-400 text-sm mb-4 group-hover:text-gray-300 transition-colors">
+                    <MapPin className="w-4 h-4 text-emerald-500" />
                     {project.location}
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-white/10 group-hover:border-accent/30 transition-colors">
-                    <div className="flex items-center gap-1.5 text-white/40 text-xs group-hover:text-white/60 transition-colors">
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-700 group-hover:border-emerald-500/30 transition-colors">
+                    <div className="flex items-center gap-1.5 text-gray-500 text-xs group-hover:text-gray-400 transition-colors">
                       <Maximize className="w-4 h-4" />
                       {project.size}
                     </div>
                     <motion.div
-                      className="text-accent font-poppins font-bold text-base"
+                      className="text-emerald-400 font-poppins font-bold text-base"
                       whileHover={{ scale: 1.1 }}
                     >
                       {project.price}

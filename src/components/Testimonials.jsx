@@ -13,7 +13,7 @@ const testimonials = [
     text: 'Sri Veda Real Estates helped me find the perfect investment plot in Ongole. The appreciation has been phenomenal, and their team was incredibly professional throughout the process.',
     rating: 5,
     initials: 'RK',
-    color: 'from-amber-500 to-orange-600',
+    color: 'from-emerald-500 to-teal-600',
   },
   {
     name: 'Lakshmi Devi',
@@ -21,7 +21,7 @@ const testimonials = [
     text: "We purchased our dream home through Sri Veda. The quality of construction and the location exceeded our expectations. Truly a trustworthy company in Ongole's real estate market.",
     rating: 5,
     initials: 'LD',
-    color: 'from-rose-800 to-red-900',
+    color: 'from-teal-500 to-cyan-600',
   },
   {
     name: 'Venkat Rao',
@@ -29,7 +29,7 @@ const testimonials = [
     text: 'I invested in their Green Valley venture and the returns have been amazing. Their DTCP approved plots give complete peace of mind. Highly recommended for safe investments.',
     rating: 5,
     initials: 'VR',
-    color: 'from-rose-700 to-red-800',
+    color: 'from-green-500 to-emerald-600',
   },
   {
     name: 'Suresh Babu',
@@ -37,7 +37,7 @@ const testimonials = [
     text: 'The team at Sri Veda was transparent and helpful from start to finish. They guided me through every step and ensured all documentation was perfect. Great service!',
     rating: 5,
     initials: 'SB',
-    color: 'from-amber-500 to-orange-600',
+    color: 'from-lime-500 to-green-600',
   },
   {
     name: 'Priya Sharma',
@@ -45,7 +45,7 @@ const testimonials = [
     text: 'Being an NRI, it was crucial for me to work with a reliable company. Sri Veda managed everything seamlessly and I now own a beautiful plot in a prime Ongole location.',
     rating: 5,
     initials: 'PS',
-    color: 'from-rose-500 to-pink-600',
+    color: 'from-cyan-500 to-teal-600',
   },
 ];
 
@@ -53,11 +53,11 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="relative py-24 lg:py-32 bg-gray-light overflow-hidden"
+      className="relative py-24 lg:py-32 bg-gray-900 overflow-hidden"
     >
       {/* Background decorations */}
-      <div className="absolute top-10 right-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 left-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute top-10 right-10 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 left-10 w-48 h-48 bg-teal-500/10 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -72,16 +72,16 @@ const Testimonials = () => {
             Testimonials
           </motion.span>
           <motion.h2
-            className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-primary mb-6"
+            className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
-            What Our <span className="text-accent">Clients Say</span>
+            What Our <span className="text-emerald-400">Clients Say</span>
           </motion.h2>
           <motion.p
-            className="text-gray-600 text-lg"
+            className="text-gray-400 text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -113,7 +113,7 @@ const Testimonials = () => {
             {testimonials.map((testimonial, i) => (
               <SwiperSlide key={i}>
                 <motion.div
-                  className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500 h-full"
+                  className="bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-700 hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-500/50 transition-all duration-500 h-full"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.3 }}
@@ -121,35 +121,35 @@ const Testimonials = () => {
                   whileHover={{ y: -5 }}
                 >
                   {/* Quote icon */}
-                  <Quote className="w-8 h-8 text-accent/20 mb-4" />
+                  <Quote className="w-8 h-8 text-emerald-500/20 mb-4" />
 
                   {/* Stars */}
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, j) => (
                       <Star
                         key={j}
-                        className="w-4 h-4 text-amber-500 fill-amber-500"
+                        className="w-4 h-4 text-amber-400 fill-amber-400"
                       />
                     ))}
                   </div>
 
                   {/* Text */}
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                  <p className="text-gray-300 text-sm leading-relaxed mb-6">
                     "{testimonial.text}"
                   </p>
 
                   {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                  <div className="flex items-center gap-3 pt-4 border-t border-gray-700">
                     <div
-                      className={`w-10 h-10 bg-gradient-to-br ${testimonial.color} rounded-full flex items-center justify-center text-white text-sm font-bold`}
+                      className={`w-10 h-10 bg-gradient-to-br ${testimonial.color} rounded-full flex items-center justify-center text-gray-900 text-sm font-bold`}
                     >
                       {testimonial.initials}
                     </div>
                     <div>
-                      <div className="font-poppins font-semibold text-primary text-sm">
+                      <div className="font-poppins font-semibold text-white text-sm">
                         {testimonial.name}
                       </div>
-                      <div className="text-gray-400 text-xs">{testimonial.role}</div>
+                      <div className="text-gray-500 text-xs">{testimonial.role}</div>
                     </div>
                   </div>
                 </motion.div>

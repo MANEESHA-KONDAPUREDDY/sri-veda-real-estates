@@ -199,7 +199,7 @@ const Footer = () => {
       {/* Scroll to top */}
       <motion.button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-accent hover:bg-accent-dark text-primary rounded-full flex items-center justify-center shadow-lg shadow-accent/25 transition-all"
+        className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-emerald-500 hover:bg-emerald-600 text-gray-900 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/25 transition-all"
         whileHover={{ scale: 1.1, y: -3 }}
         whileTap={{ scale: 0.9 }}
         initial={{ opacity: 0 }}
