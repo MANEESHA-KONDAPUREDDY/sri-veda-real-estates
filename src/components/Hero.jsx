@@ -94,7 +94,14 @@ const Hero = () => {
             >
               Find Your
               <br />
-              <span className="gradient-text">Dream Property</span>
+              <span className="relative inline-block">
+                <span className="gradient-text relative z-10">Dream Property</span>
+                <motion.span
+                  className="absolute -inset-1 bg-gradient-to-r from-accent/30 to-emerald-400/30 blur-xl -z-10"
+                  animate={{ opacity: [0.5, 0.8, 0.5] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                />
+              </span>
               <br />
               in Ongole
             </motion.h1>
@@ -117,20 +124,33 @@ const Hero = () => {
             >
               <motion.a
                 href="#projects"
-                className="group flex items-center gap-2 bg-accent hover:bg-accent-dark text-primary font-semibold px-8 py-4 rounded-full text-sm transition-all hover:shadow-xl hover:shadow-accent/25"
-                whileHover={{ scale: 1.05 }}
+                className="group relative flex items-center gap-2 bg-gradient-to-r from-accent via-emerald-400 to-teal-400 hover:from-emerald-400 hover:to-accent text-primary font-bold px-8 py-4 rounded-full text-sm transition-all overflow-hidden"
+                style={{ boxShadow: '0 10px 40px rgba(9, 237, 140, 0.4)' }}
+                whileHover={{ scale: 1.08, y: -2, boxShadow: '0 15px 50px rgba(9, 237, 140, 0.5)' }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore Properties
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <motion.div
+                  className="absolute inset-0 bg-white/30"
+                  initial={{ x: '-100%', skewX: -20 }}
+                  whileHover={{ x: '200%' }}
+                  transition={{ duration: 0.7 }}
+                />
+                <span className="relative">Explore Properties</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform relative" />
               </motion.a>
               <motion.a
                 href="#contact"
-                className="flex items-center gap-2 border border-white/20 hover:border-white/40 text-white font-medium px-8 py-4 rounded-full text-sm transition-all hover:bg-white/5"
-                whileHover={{ scale: 1.05 }}
+                className="group relative flex items-center gap-2 border-2 border-white/30 hover:border-accent backdrop-blur-sm bg-white/10 text-white font-semibold px-8 py-4 rounded-full text-sm transition-all overflow-hidden"
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Contact Us
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-accent/20 to-emerald-400/20"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <span className="relative">Contact Us</span>
               </motion.a>
             </motion.div>
 

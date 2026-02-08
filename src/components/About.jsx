@@ -139,21 +139,31 @@ const About = () => {
               {features.map((feature, i) => (
                 <motion.div
                   key={i}
-                  className="group flex items-start gap-3 p-4 rounded-xl hover:bg-gray-50 transition-all cursor-default"
+                  className="group relative flex items-start gap-3 p-5 rounded-2xl border border-gray-100 hover:border-transparent bg-white hover:shadow-xl transition-all duration-500 cursor-default overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.5 + i * 0.1, duration: 0.6 }}
-                  whileHover={{ x: 5 }}
+                  whileHover={{ x: 5, y: -5 }}
                 >
-                  <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <feature.icon className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-poppins font-semibold text-primary text-sm">
+                  {/* Gradient background on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-emerald-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <motion.div
+                    className="relative w-12 h-12 bg-gradient-to-br from-accent/20 to-emerald-400/20 rounded-xl flex items-center justify-center shrink-0 group-hover:from-accent/30 group-hover:to-emerald-400/30 transition-all duration-300"
+                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <feature.icon className="w-6 h-6 text-accent" strokeWidth={2.5} />
+                  </motion.div>
+                  <div className="relative">
+                    <h4 className="font-poppins font-bold text-primary text-base group-hover:text-accent transition-colors">
                       {feature.title}
                     </h4>
-                    <p className="text-gray-500 text-xs mt-0.5">{feature.desc}</p>
+                    <p className="text-gray-600 text-sm mt-1 leading-relaxed">{feature.desc}</p>
                   </div>
+
+                  {/* Decorative corner */}
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-accent/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </motion.div>
               ))}
             </div>

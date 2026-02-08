@@ -38,7 +38,7 @@ const projects = [
     status: 'Under Development',
     price: 'Starting ₹22L',
     featured: true,
-    image: 'images/layout1.webp',
+    image: 'images/property3.jpg',
     gradient: 'from-purple-400/20 to-pink-500/20',
   },
   {
@@ -60,7 +60,7 @@ const projects = [
     status: 'Approved Layout',
     price: 'Starting ₹35L',
     featured: false,
-    image: 'images/property3.jpg',
+    image: 'images/property4.jpg',
     gradient: 'from-rose-400/20 to-red-500/20',
   },
   {
@@ -71,7 +71,7 @@ const projects = [
     status: 'New Launch',
     price: 'Starting ₹12L',
     featured: true,
-    image: 'images/property4.jpg',
+    image: 'images/open-plots.png',
     gradient: 'from-cyan-400/20 to-blue-500/20',
   },
 ];
@@ -165,8 +165,8 @@ const Projects = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-accent/30 transition-all duration-500"
-                whileHover={{ y: -8 }}
+                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/20"
+                whileHover={{ y: -12, scale: 1.02 }}
               >
                 {/* Image area */}
                 <div className="relative h-48 overflow-hidden">
@@ -175,53 +175,72 @@ const Projects = () => {
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent" />
+
+                  {/* Animated gradient overlay */}
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                  />
 
                   {/* Status badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center gap-1 bg-accent/90 text-primary text-xs font-bold px-3 py-1 rounded-full">
+                  <motion.div
+                    className="absolute top-4 left-4"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
+                    <span className="inline-flex items-center gap-1 bg-gradient-to-r from-accent to-emerald-400 text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                       <BadgeCheck className="w-3 h-3" />
                       {project.status}
                     </span>
-                  </div>
+                  </motion.div>
 
                   {project.featured && (
-                    <div className="absolute top-4 right-4">
-                      <span className="bg-gold text-primary text-xs font-bold px-3 py-1 rounded-full">
-                        Featured
+                    <motion.div
+                      className="absolute top-4 right-4"
+                      animate={{ rotate: [0, 5, -5, 0] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    >
+                      <span className="bg-gradient-to-r from-gold to-amber-500 text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                        ⭐ Featured
                       </span>
-                    </div>
+                    </motion.div>
                   )}
 
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                     <motion.div
-                      className="w-12 h-12 bg-accent rounded-full flex items-center justify-center cursor-pointer"
-                      whileHover={{ scale: 1.2 }}
+                      className="w-14 h-14 bg-gradient-to-br from-accent to-emerald-400 rounded-full flex items-center justify-center cursor-pointer shadow-xl"
+                      whileHover={{ scale: 1.3, rotate: 90 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <ArrowUpRight className="w-5 h-5 text-primary" />
+                      <ArrowUpRight className="w-6 h-6 text-primary font-bold" strokeWidth={3} />
                     </motion.div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-6 relative">
+                  {/* Decorative gradient line */}
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${project.gradient.replace('/20', '')} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+
                   <h3 className="text-lg font-poppins font-bold text-white mb-2 group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
-                  <div className="flex items-center gap-1 text-white/50 text-sm mb-4">
-                    <MapPin className="w-3.5 h-3.5" />
+                  <div className="flex items-center gap-1.5 text-white/50 text-sm mb-4 group-hover:text-white/70 transition-colors">
+                    <MapPin className="w-4 h-4 text-accent" />
                     {project.location}
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                    <div className="flex items-center gap-1 text-white/40 text-xs">
-                      <Maximize className="w-3.5 h-3.5" />
+                  <div className="flex items-center justify-between pt-4 border-t border-white/10 group-hover:border-accent/30 transition-colors">
+                    <div className="flex items-center gap-1.5 text-white/40 text-xs group-hover:text-white/60 transition-colors">
+                      <Maximize className="w-4 h-4" />
                       {project.size}
                     </div>
-                    <div className="text-accent font-poppins font-bold text-sm">
+                    <motion.div
+                      className="text-accent font-poppins font-bold text-base"
+                      whileHover={{ scale: 1.1 }}
+                    >
                       {project.price}
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
