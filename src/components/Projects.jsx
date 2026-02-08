@@ -5,6 +5,8 @@ import { MapPin, Maximize, ArrowUpRight, BadgeCheck } from 'lucide-react';
 
 const categories = ['All', 'Open Plots', 'Investment', 'Residential', 'Commercial'];
 
+const getImagePath = (imagePath) => `${import.meta.env.BASE_URL}${imagePath.replace(/^\//, '')}`;
+
 const projects = [
   {
     title: 'Sri Veda Nagar Phase 1',
@@ -14,7 +16,7 @@ const projects = [
     status: 'Ready for Registration',
     price: 'Starting ₹15L',
     featured: true,
-    image: '/images/open-plots.png',
+    image: 'images/open-plots.png',
     gradient: 'from-emerald-400/20 to-teal-500/20',
   },
   {
@@ -25,7 +27,7 @@ const projects = [
     status: 'DTCP Approved',
     price: 'Starting ₹18L',
     featured: false,
-    image: '/images/property1.jpg',
+    image: 'images/property1.jpg',
     gradient: 'from-blue-400/20 to-indigo-500/20',
   },
   {
@@ -36,7 +38,7 @@ const projects = [
     status: 'Under Development',
     price: 'Starting ₹22L',
     featured: true,
-    image: '/images/layout1.webp',
+    image: 'images/layout1.webp',
     gradient: 'from-purple-400/20 to-pink-500/20',
   },
   {
@@ -47,7 +49,7 @@ const projects = [
     status: 'Ready to Move',
     price: 'Starting ₹45L',
     featured: false,
-    image: '/images/house1.webp',
+    image: 'images/house1.webp',
     gradient: 'from-amber-400/20 to-orange-500/20',
   },
   {
@@ -58,7 +60,7 @@ const projects = [
     status: 'Approved Layout',
     price: 'Starting ₹35L',
     featured: false,
-    image: '/images/property3.jpg',
+    image: 'images/property3.jpg',
     gradient: 'from-rose-400/20 to-red-500/20',
   },
   {
@@ -69,7 +71,7 @@ const projects = [
     status: 'New Launch',
     price: 'Starting ₹12L',
     featured: true,
-    image: '/images/property4.jpg',
+    image: 'images/property4.jpg',
     gradient: 'from-cyan-400/20 to-blue-500/20',
   },
 ];
@@ -169,7 +171,7 @@ const Projects = () => {
                 {/* Image area */}
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={project.image}
+                    src={getImagePath(project.image)}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />

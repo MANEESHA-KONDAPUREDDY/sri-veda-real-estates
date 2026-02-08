@@ -10,6 +10,8 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 
+const getImagePath = (imagePath) => `${import.meta.env.BASE_URL}${imagePath.replace(/^\//, '')}`;
+
 const services = [
   {
     icon: MapPin,
@@ -18,7 +20,7 @@ const services = [
       'Premium open plots in prime locations of Ongole with clear titles and all necessary approvals for immediate construction.',
     color: 'from-emerald-500 to-teal-600',
     shadowColor: 'shadow-emerald-500/20',
-    image: '/images/open-plots.png',
+    image: 'images/open-plots.png',
   },
   {
     icon: Home,
@@ -27,7 +29,7 @@ const services = [
       'Beautifully designed houses ready for immediate possession with modern amenities and world-class construction quality.',
     color: 'from-blue-500 to-indigo-600',
     shadowColor: 'shadow-blue-500/20',
-    image: '/images/house1.webp',
+    image: 'images/house1.webp',
   },
   {
     icon: TrendingUp,
@@ -36,7 +38,7 @@ const services = [
       'Strategic investment lands with high appreciation potential. Our properties have consistently delivered excellent returns.',
     color: 'from-amber-500 to-orange-600',
     shadowColor: 'shadow-amber-500/20',
-    image: '/images/property1.jpg',
+    image: 'images/property1.jpg',
   },
   {
     icon: FileCheck,
@@ -45,7 +47,7 @@ const services = [
       'Government-approved layouts with DTCP clearance, ensuring complete legal safety and peace of mind for your investment.',
     color: 'from-purple-500 to-violet-600',
     shadowColor: 'shadow-purple-500/20',
-    image: '/images/layout1.webp',
+    image: 'images/layout1.webp',
   },
   {
     icon: Handshake,
@@ -54,7 +56,7 @@ const services = [
       'Expert guidance and consultation for all your real estate needs. We help you make informed decisions for maximum value.',
     color: 'from-rose-500 to-pink-600',
     shadowColor: 'shadow-rose-500/20',
-    image: '/images/property3.jpg',
+    image: 'images/property3.jpg',
   },
   {
     icon: Building,
@@ -63,7 +65,7 @@ const services = [
       'End-to-end venture development with modern infrastructure, landscaping, and all essential amenities for comfortable living.',
     color: 'from-cyan-500 to-blue-600',
     shadowColor: 'shadow-cyan-500/20',
-    image: '/images/property2.jpeg',
+    image: 'images/property2.jpeg',
   },
 ];
 
@@ -120,7 +122,7 @@ const Services = () => {
               {/* Hover image background */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <img
-                  src={service.image}
+                  src={getImagePath(service.image)}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />

@@ -51,7 +51,7 @@ const About = () => {
                 transition={{ duration: 0.5 }}
               >
                 <img
-                  src="/images/property2.jpeg"
+                  src={`${import.meta.env.BASE_URL}images/property2.jpeg`}
                   alt="Sri Veda Real Estates - Premium Properties"
                   className="w-full h-full object-cover"
                 />

@@ -170,7 +170,7 @@ const Hero = () => {
                 transition={{ duration: 1, delay: 0.5 }}
               >
                 <img
-                  src="/images/property1.jpg"
+                  src={`${import.meta.env.BASE_URL}images/property1.jpg`}
                   alt="Premium Real Estate Property"
                   className="w-full h-[500px] object-cover"
                 />
