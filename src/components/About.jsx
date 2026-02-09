@@ -33,6 +33,45 @@ const About = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl" />
 
+      {/* Floating particles with elegant motion */}
+      {[...Array(6)].map((_, i) => {
+        const randomDelay = Math.random() * 2.5;
+        const randomDuration = 6 + Math.random() * 4;
+        const randomSize = 1.5 + Math.random() * 2.5;
+
+        return (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              left: `${8 + Math.random() * 84}%`,
+              top: `${8 + Math.random() * 84}%`,
+              width: `${randomSize}px`,
+              height: `${randomSize}px`,
+              background: i % 2 === 0
+                ? 'rgba(6, 182, 212, 0.5)'
+                : 'rgba(139, 92, 246, 0.4)',
+              boxShadow: i % 2 === 0
+                ? '0 0 12px rgba(6, 182, 212, 0.9), 0 0 20px rgba(6, 182, 212, 0.5)'
+                : '0 0 12px rgba(139, 92, 246, 0.9), 0 0 20px rgba(139, 92, 246, 0.5)',
+              transformStyle: 'preserve-3d',
+            }}
+            animate={{
+              y: [0, -35, 0],
+              x: [0, Math.random() * 25 - 12, 0],
+              scale: [1, 1.8, 1],
+              opacity: [0.4, 1, 0.4],
+            }}
+            transition={{
+              duration: randomDuration,
+              repeat: Infinity,
+              delay: randomDelay,
+              ease: [0.4, 0, 0.2, 1],
+            }}
+          />
+        );
+      })}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Visual */}

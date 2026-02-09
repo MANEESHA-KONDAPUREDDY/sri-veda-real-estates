@@ -202,10 +202,9 @@ const Projects = () => {
           background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%)',
         }}
         animate={{
-          scale: [1, 1.3, 1],
-          rotateZ: [0, 180, 360],
+          scale: [1, 1.2, 1],
         }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
       />
 
       <motion.div
@@ -214,11 +213,54 @@ const Projects = () => {
           background: 'radial-gradient(circle, rgba(6, 182, 212, 0.2), transparent 70%)',
         }}
         animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.3, 0.5, 0.3],
+          scale: [1.15, 1, 1.15],
         }}
-        transition={{ duration: 12, repeat: Infinity }}
+        transition={{ duration: 14, repeat: Infinity }}
       />
+
+      {/* Floating particles with sparkle effect */}
+      {[...Array(10)].map((_, i) => {
+        const randomDelay = Math.random() * 4;
+        const randomDuration = 4 + Math.random() * 5;
+        const randomSize = 1 + Math.random() * 3;
+
+        return (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              left: `${10 + Math.random() * 80}%`,
+              top: `${10 + Math.random() * 80}%`,
+              width: `${randomSize}px`,
+              height: `${randomSize}px`,
+              background: i % 3 === 0
+                ? 'rgba(34, 211, 238, 0.7)'
+                : i % 3 === 1
+                ? 'rgba(139, 92, 246, 0.6)'
+                : 'rgba(167, 139, 250, 0.5)',
+              boxShadow: i % 3 === 0
+                ? '0 0 15px rgba(34, 211, 238, 1)'
+                : i % 3 === 1
+                ? '0 0 15px rgba(139, 92, 246, 1)'
+                : '0 0 12px rgba(167, 139, 250, 1)',
+              transformStyle: 'preserve-3d',
+            }}
+            animate={{
+              y: [0, -40, 0],
+              x: [0, Math.random() * 30 - 15, 0],
+              scale: [1, 2, 1],
+              opacity: [0.2, 1, 0.2],
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: randomDuration,
+              repeat: Infinity,
+              delay: randomDelay,
+              ease: [0.4, 0, 0.2, 1],
+            }}
+          />
+        );
+      })}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">

@@ -86,10 +86,9 @@ const Services = () => {
           background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 70%)',
         }}
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
+          scale: [1, 1.15, 1],
         }}
-        transition={{ duration: 8, repeat: Infinity }}
+        transition={{ duration: 10, repeat: Infinity }}
       />
       <motion.div
         className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl"
@@ -97,11 +96,47 @@ const Services = () => {
           background: 'radial-gradient(circle, rgba(6, 182, 212, 0.25), transparent 70%)',
         }}
         animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.4, 0.6, 0.4],
+          scale: [1.15, 1, 1.15],
         }}
-        transition={{ duration: 10, repeat: Infinity }}
+        transition={{ duration: 12, repeat: Infinity }}
       />
+
+      {/* Floating particles with 3D depth */}
+      {[...Array(8)].map((_, i) => {
+        const randomDelay = Math.random() * 3;
+        const randomDuration = 5 + Math.random() * 4;
+        const randomSize = 1.5 + Math.random() * 2;
+
+        return (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              left: `${5 + Math.random() * 90}%`,
+              top: `${5 + Math.random() * 90}%`,
+              width: `${randomSize}px`,
+              height: `${randomSize}px`,
+              background: i % 2 === 0 ? 'rgba(6, 182, 212, 0.6)' : 'rgba(139, 92, 246, 0.5)',
+              boxShadow: i % 2 === 0
+                ? '0 0 10px rgba(6, 182, 212, 0.8)'
+                : '0 0 10px rgba(139, 92, 246, 0.8)',
+              transformStyle: 'preserve-3d',
+            }}
+            animate={{
+              y: [0, -30, 0],
+              x: [0, Math.random() * 20 - 10, 0],
+              scale: [1, 1.5, 1],
+              opacity: [0.3, 0.9, 0.3],
+            }}
+            transition={{
+              duration: randomDuration,
+              repeat: Infinity,
+              delay: randomDelay,
+              ease: [0.4, 0, 0.2, 1],
+            }}
+          />
+        );
+      })}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">

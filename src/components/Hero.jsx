@@ -1,18 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MapPin } from 'lucide-react';
 
 const Hero = () => {
-  const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ rotateX: 0, rotateY: 0 });
   const cardRef = useRef(null);
-
-  // Scroll parallax effect
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Mouse tracking for 3D tilt effect
   const handleMouseMove = (e) => {
@@ -52,14 +44,12 @@ const Hero = () => {
           className="absolute top-0 right-0 w-[900px] h-[900px] rounded-full opacity-20"
           style={{
             background: 'radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent 70%)',
-            transform: `translateZ(-300px) translateY(${scrollY * -0.5}px)`,
           }}
           animate={{
-            scale: [1, 1.3, 1],
-            x: [0, 60, 0],
-            y: [0, -40, 0],
+            scale: [1, 1.2, 1],
+            x: [0, 40, 0],
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
         />
 
         {/* Parallax Layer 2 - Mid back - Cyan */}
@@ -67,14 +57,12 @@ const Hero = () => {
           className="absolute bottom-0 left-0 w-[700px] h-[700px] rounded-full opacity-15"
           style={{
             background: 'radial-gradient(circle, rgba(6, 182, 212, 0.4), transparent 70%)',
-            transform: `translateZ(-150px) translateY(${scrollY * -0.3}px)`,
           }}
           animate={{
             scale: [1.2, 1, 1.2],
-            x: [0, -40, 0],
-            y: [0, 60, 0],
+            x: [0, -30, 0],
           }}
-          transition={{ duration: 12, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 15, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
         />
 
         {/* Parallax Layer 3 - Center - Purple */}
@@ -82,27 +70,12 @@ const Hero = () => {
           className="absolute top-1/2 left-1/2 w-[600px] h-[600px] rounded-full opacity-10"
           style={{
             background: 'radial-gradient(circle, rgba(167, 139, 250, 0.35), transparent 70%)',
-            transform: `translate(-50%, -50%) translateZ(0px) translateY(${scrollY * -0.1}px)`,
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-        />
-
-        {/* Parallax Layer 4 - Front - Cyan */}
-        <motion.div
-          className="absolute top-20 left-20 w-[400px] h-[400px] rounded-full opacity-10"
-          style={{
-            background: 'radial-gradient(circle, rgba(34, 211, 238, 0.25), transparent 70%)',
-            transform: `translateZ(100px) translateY(${scrollY * 0.1}px)`,
+            transform: 'translate(-50%, -50%)',
           }}
           animate={{
             scale: [1, 1.15, 1],
-            x: [0, 30, 0],
           }}
-          transition={{ duration: 8, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
         />
 
         {/* Grid pattern - Cyan */}
@@ -115,10 +88,10 @@ const Hero = () => {
         />
 
         {/* 3D Floating particles with depth */}
-        {[...Array(20)].map((_, i) => {
+        {[...Array(6)].map((_, i) => {
           const randomZ = (Math.random() - 0.5) * 200; // -100px to 100px
-          const randomDelay = Math.random() * 4;
-          const randomDuration = 4 + Math.random() * 4;
+          const randomDelay = Math.random() * 3;
+          const randomDuration = 5 + Math.random() * 3;
 
           return (
             <motion.div

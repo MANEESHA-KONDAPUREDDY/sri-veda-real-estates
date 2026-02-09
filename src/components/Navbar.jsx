@@ -53,42 +53,17 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-purple-600 via-purple-500 to-cyan-500 text-white text-xs py-2.5 px-4 will-change-transform shadow-3d-elevated"
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: isScrolled ? -50 : 0, opacity: isScrolled ? 0 : 1 }}
-        transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-      >
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <a href="tel:+919876543210" className="flex items-center gap-1.5 hover:text-cyan-100 transition-all duration-300 group">
-              <Phone className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" style={{ transform: 'translateZ(5px)' }} />
-              <span className="font-medium">+91 98765 43210</span>
-            </a>
-            <a href="mailto:info@srivedarealestate.com" className="flex items-center gap-1.5 hover:text-cyan-100 transition-all duration-300 group hidden sm:flex">
-              <Mail className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" style={{ transform: 'translateZ(5px)' }} />
-              <span className="font-medium">info@srivedarealestate.com</span>
-            </a>
-          </div>
-          <div className="hidden md:flex items-center gap-2">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-200" />
-            <span className="font-medium">Ongole, Andhra Pradesh</span>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Main navbar */}
+      {/* Main navbar - Always fixed at top */}
       <motion.nav
-        className={`fixed left-0 right-0 z-40 will-change-transform ${
+        className={`fixed top-0 left-0 right-0 z-50 will-change-transform ${
           isScrolled
-            ? 'top-0 bg-slate-900/95 backdrop-blur-xl shadow-3d-elevated shadow-purple-500/20 border-b border-purple-500/30 py-3'
-            : 'top-8 bg-slate-900/70 backdrop-blur-md border-b border-purple-500/30 py-4'
+            ? 'bg-slate-900/95 backdrop-blur-xl shadow-3d-elevated shadow-purple-500/20 border-b border-purple-500/30 py-3'
+            : 'bg-slate-900/80 backdrop-blur-md border-b border-purple-500/30 py-4'
         }`}
-        style={{ transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }}
+        style={{ transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)' }}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -108,7 +83,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`relative px-5 py-2.5 text-sm font-semibold rounded-xl cursor-pointer ${
+                  className={`relative px-5 py-2.5 text-sm font-semibold rounded-xl cursor-pointer group ${
                     activeLink === link.href
                       ? 'text-cyan-400'
                       : 'text-white hover:text-cyan-400 hover:bg-purple-600/20'
@@ -117,13 +92,24 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: -15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 * i, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -3 }}
+                  whileHover={{
+                    y: -3,
+                    textShadow: '0 0 15px rgba(6, 182, 212, 0.6)',
+                  }}
                   whileTap={{ scale: 0.97 }}
                 >
                   {link.name}
                   {activeLink === link.href && (
-                    <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full shadow-3d-button neon-cyan" layoutId="activeNav" transition={{ type: 'spring', stiffness: 380, damping: 30 }} />
+                    <motion.div
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full shadow-3d-button neon-cyan"
+                      layoutId="activeNav"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
                   )}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/20 to-cyan-400/0 rounded-xl opacity-0 group-hover:opacity-100 blur-sm"
+                    transition={{ duration: 0.3 }}
+                  />
                 </motion.a>
               ))}
             </div>
@@ -149,12 +135,163 @@ const Navbar = () => {
 
       <AnimatePresence>
         {isMobileOpen && (
-          <motion.div className="fixed inset-0 z-30 bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 backdrop-blur-xl lg:hidden" initial={{ opacity: 0, scale: 1.1 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 1.1 }} transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}>
-            <div className="flex flex-col items-center justify-center h-full gap-6 px-6">
+          <motion.div
+            className="fixed inset-0 z-50 bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 backdrop-blur-xl lg:hidden overflow-hidden"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          >
+            {/* Floating particles in mobile menu */}
+            {[...Array(12)].map((_, i) => {
+              const randomDelay = Math.random() * 2;
+              const randomDuration = 4 + Math.random() * 4;
+              const randomSize = 2 + Math.random() * 4;
+
+              return (
+                <motion.div
+                  key={i}
+                  className="absolute rounded-full pointer-events-none z-0"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    width: `${randomSize}px`,
+                    height: `${randomSize}px`,
+                    background: i % 2 === 0
+                      ? 'rgba(6, 182, 212, 0.4)'
+                      : 'rgba(139, 92, 246, 0.5)',
+                    boxShadow: i % 2 === 0
+                      ? '0 0 15px rgba(6, 182, 212, 0.8)'
+                      : '0 0 15px rgba(139, 92, 246, 0.8)',
+                  }}
+                  animate={{
+                    y: [0, -40, 0],
+                    x: [0, Math.random() * 30 - 15, 0],
+                    scale: [1, 1.5, 1],
+                    opacity: [0.2, 0.8, 0.2],
+                  }}
+                  transition={{
+                    duration: randomDuration,
+                    repeat: Infinity,
+                    delay: randomDelay,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                />
+              );
+            })}
+
+            {/* Gradient orbs */}
+            <motion.div
+              className="absolute top-20 right-10 w-64 h-64 rounded-full blur-3xl z-0"
+              style={{ background: 'radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent 70%)' }}
+              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 5, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute bottom-20 left-10 w-56 h-56 rounded-full blur-3xl z-0"
+              style={{ background: 'radial-gradient(circle, rgba(6, 182, 212, 0.3), transparent 70%)' }}
+              animate={{ scale: [1.2, 1, 1.2], opacity: [0.4, 0.7, 0.4] }}
+              transition={{ duration: 6, repeat: Infinity }}
+            />
+
+            {/* Close Button */}
+            <motion.button
+              onClick={() => setIsMobileOpen(false)}
+              className="fixed top-6 right-6 z-20 w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 flex items-center justify-center shadow-3d-button neon-dual"
+              initial={{ opacity: 0, rotate: -90, scale: 0 }}
+              animate={{ opacity: 1, rotate: 0, scale: 1 }}
+              exit={{ opacity: 0, rotate: 90, scale: 0 }}
+              transition={{ duration: 0.3 }}
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <X className="w-6 h-6 text-white" strokeWidth={3} />
+            </motion.button>
+
+            <div className="relative z-10 flex flex-col items-center justify-center h-full gap-5 px-6 py-8 overflow-y-auto max-h-screen">
+              {/* Contact Info at Top */}
+              <motion.div
+                className="flex flex-col gap-3 mb-4 pb-4 border-b border-cyan-400/30"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05, duration: 0.5 }}
+              >
+                <a
+                  href="tel:+919876543210"
+                  className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>+91 98765 43210</span>
+                </a>
+                <a
+                  href="mailto:info@srivedarealestate.com"
+                  className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>info@srivedarealestate.com</span>
+                </a>
+              </motion.div>
+
+              {/* Navigation Links */}
               {navLinks.map((link, i) => (
-                <motion.a key={link.name} href={link.href} onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }} className={`text-2xl font-poppins font-bold ${activeLink === link.href ? 'text-cyan-400' : 'text-white'} hover:text-cyan-400 transition-all duration-300`} initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30 }} transition={{ delay: 0.08 * i, duration: 0.3 }} whileHover={{ scale: 1.1, x: 10 }} whileTap={{ scale: 0.95 }}>{link.name}</motion.a>
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                  className={`relative text-3xl font-poppins font-bold ${activeLink === link.href ? 'text-cyan-400' : 'text-white'} transition-all duration-300 group`}
+                  initial={{ opacity: 0, x: -50, rotateY: -90 }}
+                  animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                  exit={{ opacity: 0, x: 50, rotateY: 90 }}
+                  transition={{
+                    delay: 0.15 + 0.1 * i,
+                    duration: 0.5,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  whileHover={{
+                    scale: 1.15,
+                    x: 15,
+                    textShadow: '0 0 20px rgba(6, 182, 212, 0.8)',
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  {link.name}
+                  {activeLink === link.href && (
+                    <motion.div
+                      className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full"
+                      layoutId="activeMobileNav"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      style={{ boxShadow: '0 0 15px rgba(6, 182, 212, 0.8)' }}
+                    />
+                  )}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 -z-10 blur-xl"
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.a>
               ))}
-              <motion.a href="#contact" onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }} className="mt-6 bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold px-10 py-4 rounded-full text-lg shadow-3d-button neon-dual" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 30 }} transition={{ delay: 0.4, duration: 0.4 }} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>Get in Touch</motion.a>
+
+              {/* Get in Touch Button */}
+              <motion.a
+                href="#contact"
+                onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
+                className="relative mt-6 bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold px-12 py-5 rounded-full text-xl shadow-3d-button neon-dual overflow-hidden group"
+                initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 50, scale: 0.8 }}
+                transition={{ delay: 0.75, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ scale: 1.08, boxShadow: '0 0 40px rgba(6, 182, 212, 0.6)' }}
+                whileTap={{ scale: 0.95 }}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-600"
+                  initial={{ x: '-100%', skewX: -20 }}
+                  whileHover={{ x: '100%' }}
+                  transition={{ duration: 0.6 }}
+                />
+                <span className="relative z-10">Get in Touch</span>
+              </motion.a>
             </div>
           </motion.div>
         )}

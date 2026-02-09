@@ -19,6 +19,50 @@ const Contact = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl" />
 
+      {/* Floating particles with twinkling effect */}
+      {[...Array(8)].map((_, i) => {
+        const randomDelay = Math.random() * 3;
+        const randomDuration = 5 + Math.random() * 5;
+        const randomSize = 1 + Math.random() * 2.5;
+
+        return (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              left: `${5 + Math.random() * 90}%`,
+              top: `${5 + Math.random() * 90}%`,
+              width: `${randomSize}px`,
+              height: `${randomSize}px`,
+              background: i % 3 === 0
+                ? 'rgba(34, 211, 238, 0.6)'
+                : i % 3 === 1
+                ? 'rgba(139, 92, 246, 0.5)'
+                : 'rgba(167, 139, 250, 0.4)',
+              boxShadow: i % 3 === 0
+                ? '0 0 10px rgba(34, 211, 238, 1), 0 0 20px rgba(34, 211, 238, 0.6)'
+                : i % 3 === 1
+                ? '0 0 10px rgba(139, 92, 246, 1), 0 0 20px rgba(139, 92, 246, 0.6)'
+                : '0 0 10px rgba(167, 139, 250, 1), 0 0 18px rgba(167, 139, 250, 0.6)',
+              transformStyle: 'preserve-3d',
+            }}
+            animate={{
+              y: [0, -28, 0],
+              x: [0, Math.random() * 20 - 10, 0],
+              scale: [1, 1.6, 1],
+              opacity: [0.3, 1, 0.3],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: randomDuration,
+              repeat: Infinity,
+              delay: randomDelay,
+              ease: [0.4, 0, 0.2, 1],
+            }}
+          />
+        );
+      })}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span className="inline-block text-cyan-400 font-semibold text-sm tracking-widest uppercase mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }} style={{ textShadow: '0 0 20px rgba(6, 182, 212, 0.5)' }}>Get in Touch</motion.span>
