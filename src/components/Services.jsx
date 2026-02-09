@@ -71,6 +71,16 @@ const services = [
 ];
 
 const Services = () => {
+  const [flippedCards, setFlippedCards] = useState([]);
+
+  const toggleCard = (index) => {
+    setFlippedCards(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
+
   return (
     <section
       id="services"
@@ -182,8 +192,10 @@ const Services = () => {
             >
               {/* 3D Flip Card Container */}
               <motion.div
-                className="relative w-full h-full preserve-3d"
+                className="relative w-full h-full preserve-3d cursor-pointer"
                 whileHover={{ rotateY: 180 }}
+                animate={{ rotateY: flippedCards.includes(i) ? 180 : 0 }}
+                onClick={() => toggleCard(i)}
                 transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                 style={{ transformStyle: 'preserve-3d' }}
               >
@@ -233,7 +245,8 @@ const Services = () => {
                     <p className="text-slate-400 text-sm mb-4">{service.shortDesc}</p>
 
                     <div className="flex items-center gap-2 text-cyan-400 font-semibold text-sm">
-                      <span>Hover to learn more</span>
+                      <span className="hidden lg:inline">Hover to learn more</span>
+                      <span className="lg:hidden">Tap to learn more</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
