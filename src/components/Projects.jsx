@@ -51,18 +51,18 @@ const ProjectCard = ({ project, index }) => {
       onMouseLeave={resetTilt}
     >
       <motion.div
-        className="group relative bg-white border border-navy-200 rounded-3xl overflow-hidden transition-all duration-500 shadow-3d-card transform-3d"
+        className="group relative bg-slate-800/50 backdrop-blur-sm border border-purple-500/30 rounded-3xl overflow-hidden transition-all duration-500 shadow-3d-card transform-3d neon-cyan-hover"
         animate={{
           rotateX: mousePosition.rotateX,
           rotateY: mousePosition.rotateY,
         }}
         style={{
           transformStyle: 'preserve-3d',
-          boxShadow: `${mousePosition.rotateY * 1.5}px ${-mousePosition.rotateX * 1.5}px 40px rgba(30, 58, 138, 0.2), ${-mousePosition.rotateY}px ${mousePosition.rotateX}px 30px rgba(245, 158, 11, 0.1)`,
+          boxShadow: `${mousePosition.rotateY * 1.5}px ${-mousePosition.rotateX * 1.5}px 40px rgba(139, 92, 246, 0.3), ${-mousePosition.rotateY}px ${mousePosition.rotateX}px 30px rgba(6, 182, 212, 0.2)`,
         }}
         whileHover={{
           scale: 1.03,
-          borderColor: '#F59E0B',
+          borderColor: '#06B6D4',
           transition: { duration: 0.3 },
         }}
       >
@@ -84,7 +84,7 @@ const ProjectCard = ({ project, index }) => {
 
           {/* Gradient Overlays */}
           <div
-            className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-navy-900/30 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/30 to-transparent"
             style={{ transform: 'translateZ(20px)' }}
           />
 
@@ -98,7 +98,7 @@ const ProjectCard = ({ project, index }) => {
               transform: 'translateZ(40px)',
             }}
           >
-            <span className="inline-flex items-center gap-1 bg-gold-500 text-navy-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-3d-button">
+            <span className="inline-flex items-center gap-1 bg-cyan-500 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-3d-button neon-cyan">
               <BadgeCheck className="w-3 h-3" />
               {project.status}
             </span>
@@ -118,7 +118,7 @@ const ProjectCard = ({ project, index }) => {
                 transform: 'translateZ(40px)',
               }}
             >
-              <span className="bg-white text-gold-600 text-xs font-bold px-3 py-1.5 rounded-full shadow-3d-button">
+              <span className="bg-white text-purple-600 text-xs font-bold px-3 py-1.5 rounded-full shadow-3d-button">
                 ⭐ Featured
               </span>
             </motion.div>
@@ -126,16 +126,16 @@ const ProjectCard = ({ project, index }) => {
 
           {/* Hover overlay with 3D icon */}
           <div
-            className="absolute inset-0 bg-gradient-to-t from-gold-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"
+            className="absolute inset-0 bg-gradient-to-t from-cyan-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"
             style={{ transform: 'translateZ(35px)' }}
           >
             <motion.div
-              className="w-16 h-16 bg-gold-500 rounded-full flex items-center justify-center cursor-pointer shadow-3d-elevated"
+              className="w-16 h-16 bg-cyan-500 rounded-full flex items-center justify-center cursor-pointer shadow-3d-elevated neon-cyan"
               whileHover={{ scale: 1.4, rotateZ: 90 }}
               transition={{ duration: 0.3 }}
               style={{ transform: 'translateZ(10px)' }}
             >
-              <ArrowUpRight className="w-7 h-7 text-navy-900 font-bold" strokeWidth={3} />
+              <ArrowUpRight className="w-7 h-7 text-slate-900 font-bold" strokeWidth={3} />
             </motion.div>
           </div>
         </div>
@@ -148,22 +148,22 @@ const ProjectCard = ({ project, index }) => {
             transform: 'translateZ(15px)',
           }}
         >
-          <h3 className="text-xl font-poppins font-bold text-navy-900 mb-2 group-hover:text-gold-600 transition-colors">
+          <h3 className="text-xl font-poppins font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
             {project.title}
           </h3>
-          <div className="flex items-center gap-1.5 text-gray-600 text-sm mb-4">
-            <MapPin className="w-4 h-4 text-gold-500" />
+          <div className="flex items-center gap-1.5 text-slate-400 text-sm mb-4">
+            <MapPin className="w-4 h-4 text-cyan-500" />
             {project.location}
           </div>
-          <div className="flex items-center justify-between pt-4 border-t border-navy-100 group-hover:border-gold-200 transition-colors">
-            <div className="flex items-center gap-1.5 text-gray-500 text-xs">
+          <div className="flex items-center justify-between pt-4 border-t border-purple-500/20 group-hover:border-cyan-400/30 transition-colors">
+            <div className="flex items-center gap-1.5 text-slate-500 text-xs">
               <Maximize className="w-4 h-4" />
               {project.size}
             </div>
             <motion.div
-              className="text-gold-600 font-poppins font-bold text-lg"
+              className="text-cyan-400 font-poppins font-bold text-lg"
               whileHover={{ scale: 1.15, rotateY: 10 }}
-              style={{ transformStyle: 'preserve-3d' }}
+              style={{ transformStyle: 'preserve-3d', textShadow: '0 0 20px rgba(6, 182, 212, 0.6)' }}
             >
               {project.price}
             </motion.div>
@@ -172,7 +172,7 @@ const ProjectCard = ({ project, index }) => {
 
         {/* 3D Glow effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-gold-400/10 via-transparent to-navy-600/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-3xl"
+          className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-3xl"
           animate={{
             opacity: [0, 0.3, 0],
           }}
@@ -192,14 +192,14 @@ const Projects = () => {
       id="projects"
       className="relative py-24 lg:py-32 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #ffffff 0%, #f0f4ff 50%, #ffffff 100%)',
+        background: 'linear-gradient(180deg, #0F172A 0%, #020617 50%, #0F172A 100%)',
       }}
     >
       {/* 3D Background decorations */}
       <motion.div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(30, 58, 138, 0.1), transparent 70%)',
+          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%)',
         }}
         animate={{
           scale: [1, 1.3, 1],
@@ -211,7 +211,7 @@ const Projects = () => {
       <motion.div
         className="absolute bottom-20 right-10 w-[500px] h-[500px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(245, 158, 11, 0.15), transparent 70%)',
+          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.2), transparent 70%)',
         }}
         animate={{
           scale: [1.2, 1, 1.2],
@@ -223,26 +223,26 @@ const Projects = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <motion.span
-            className="inline-block text-gold-600 font-semibold text-sm tracking-widest uppercase mb-4"
+            className="inline-block text-cyan-400 font-semibold text-sm tracking-widest uppercase mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-            style={{ textShadow: '0 0 20px rgba(245, 158, 11, 0.3)' }}
+            style={{ textShadow: '0 0 20px rgba(6, 182, 212, 0.5)' }}
           >
             Our Projects
           </motion.span>
           <motion.h2
-            className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-navy-900 mb-6"
+            className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
-            Featured <span className="text-gold-600">Properties</span>
+            Featured <span className="text-cyan-400">Properties</span>
           </motion.h2>
           <motion.p
-            className="text-gray-600 text-lg"
+            className="text-slate-300 text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -266,8 +266,8 @@ const Projects = () => {
               onClick={() => setActiveFilter(cat)}
               className={`px-6 py-3 rounded-full text-sm font-semibold transition-all transform-3d ${
                 activeFilter === cat
-                  ? 'bg-navy-900 text-white border-2 border-gold-500 shadow-3d-button'
-                  : 'bg-white text-gray-700 hover:bg-navy-50 hover:text-navy-900 border-2 border-navy-200'
+                  ? 'bg-gradient-to-r from-purple-600 to-cyan-500 text-white border-2 border-cyan-400 shadow-3d-button neon-dual'
+                  : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 hover:text-cyan-400 border-2 border-purple-500/30'
               }`}
               whileHover={{ scale: 1.08, y: -2 }}
               whileTap={{ scale: 0.95 }}

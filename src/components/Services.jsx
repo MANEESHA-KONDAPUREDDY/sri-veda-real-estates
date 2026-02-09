@@ -20,7 +20,7 @@ const services = [
     shortDesc: 'Premium plots in prime locations',
     description: 'Premium open plots in prime locations of Ongole with clear titles and all necessary approvals for immediate construction.',
     features: ['Clear Titles', 'Prime Locations', 'Immediate Construction', 'Legal Safety'],
-    color: 'from-navy-600 to-gold-500',
+    color: 'from-purple-600 to-cyan-500',
     image: 'images/service-open-plots.jpg',
   },
   {
@@ -29,7 +29,7 @@ const services = [
     shortDesc: 'Modern homes ready for possession',
     description: 'Beautifully designed houses ready for immediate possession with modern amenities and world-class construction quality.',
     features: ['Modern Design', 'Premium Quality', 'Immediate Possession', 'World-Class Amenities'],
-    color: 'from-gold-500 to-navy-600',
+    color: 'from-cyan-500 to-purple-600',
     image: 'images/service-ready-house.jpg',
   },
   {
@@ -38,7 +38,7 @@ const services = [
     shortDesc: 'High appreciation potential',
     description: 'Strategic investment lands with high appreciation potential. Our properties have consistently delivered excellent returns.',
     features: ['Strategic Location', 'High Returns', 'Future Growth', 'Expert Guidance'],
-    color: 'from-navy-700 to-gold-400',
+    color: 'from-purple-700 to-cyan-400',
     image: 'images/service-investment.jpg',
   },
   {
@@ -47,7 +47,7 @@ const services = [
     shortDesc: 'Government approved layouts',
     description: 'Government-approved layouts with DTCP clearance, ensuring complete legal safety and peace of mind for your investment.',
     features: ['DTCP Clearance', 'Legal Safety', 'Government Approved', 'Peace of Mind'],
-    color: 'from-gold-400 to-navy-700',
+    color: 'from-cyan-400 to-purple-700',
     image: 'images/service-dtcp-plots.jpg',
   },
   {
@@ -56,7 +56,7 @@ const services = [
     shortDesc: 'Expert real estate guidance',
     description: 'Expert guidance and consultation for all your real estate needs. We help you make informed decisions for maximum value.',
     features: ['Expert Guidance', 'Market Analysis', 'Investment Planning', 'Personalized Service'],
-    color: 'from-navy-600 to-gold-500',
+    color: 'from-purple-600 to-cyan-500',
     image: 'images/service-consultation.jpg',
   },
   {
@@ -65,7 +65,7 @@ const services = [
     shortDesc: 'End-to-end project development',
     description: 'End-to-end venture development with modern infrastructure, landscaping, and all essential amenities for comfortable living.',
     features: ['Modern Infrastructure', 'Premium Landscaping', 'Essential Amenities', 'Quality Construction'],
-    color: 'from-gold-500 to-navy-600',
+    color: 'from-cyan-500 to-purple-600',
     image: 'images/service-development.jpg',
   },
 ];
@@ -76,14 +76,14 @@ const Services = () => {
       id="services"
       className="relative py-24 lg:py-32 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #f0f4ff 0%, #fef3c7 50%, #f0f4ff 100%)',
+        background: 'linear-gradient(180deg, #0F172A 0%, #1E1B4B 50%, #0F172A 100%)',
       }}
     >
       {/* 3D Background decorations */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl"
         style={{
-          background: 'radial-gradient(circle, rgba(30, 58, 138, 0.15), transparent 70%)',
+          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 70%)',
         }}
         animate={{
           scale: [1, 1.2, 1],
@@ -94,7 +94,7 @@ const Services = () => {
       <motion.div
         className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl"
         style={{
-          background: 'radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent 70%)',
+          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.25), transparent 70%)',
         }}
         animate={{
           scale: [1.2, 1, 1.2],
@@ -106,26 +106,26 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span
-            className="inline-block text-gold-600 font-semibold text-sm tracking-widest uppercase mb-4"
+            className="inline-block text-cyan-400 font-semibold text-sm tracking-widest uppercase mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-            style={{ textShadow: '0 0 20px rgba(245, 158, 11, 0.3)' }}
+            style={{ textShadow: '0 0 20px rgba(6, 182, 212, 0.5)' }}
           >
             Our Services
           </motion.span>
           <motion.h2
-            className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-navy-900 mb-6"
+            className="text-3xl lg:text-4xl xl:text-5xl font-poppins font-bold text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
-            What We <span className="text-gold-600">Offer</span>
+            What We <span className="text-cyan-400">Offer</span>
           </motion.h2>
           <motion.p
-            className="text-gray-600 text-lg"
+            className="text-slate-300 text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -154,7 +154,7 @@ const Services = () => {
               >
                 {/* FRONT FACE */}
                 <div
-                  className="absolute inset-0 backface-hidden bg-white rounded-3xl overflow-hidden border border-navy-200 shadow-3d-card"
+                  className="absolute inset-0 backface-hidden bg-slate-800/50 rounded-3xl overflow-hidden border border-purple-500/30 shadow-3d-card backdrop-blur-sm neon-purple-hover"
                   style={{ backfaceVisibility: 'hidden' }}
                 >
                   <div className="relative h-56 w-full overflow-hidden">
@@ -165,7 +165,7 @@ const Services = () => {
                       loading="lazy"
                       decoding="async"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
 
                     {/* Premium Badge with 3D animation */}
                     <motion.div
@@ -176,15 +176,15 @@ const Services = () => {
                       }}
                       transition={{ duration: 3, repeat: Infinity }}
                     >
-                      <span className="inline-block bg-gradient-to-r from-gold-500 to-gold-400 text-navy-900 px-4 py-2 rounded-full text-sm font-bold shadow-3d-button">
+                      <span className="inline-block bg-gradient-to-r from-purple-600 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-3d-button neon-dual">
                         ⭐ Premium
                       </span>
                     </motion.div>
 
                     {/* Icon */}
                     <div className="absolute bottom-4 left-4">
-                      <div className="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center shadow-3d-button">
-                        <service.icon className="w-7 h-7 text-navy-900" />
+                      <div className="w-14 h-14 bg-cyan-500 rounded-2xl flex items-center justify-center shadow-3d-button neon-cyan">
+                        <service.icon className="w-7 h-7 text-slate-900" />
                       </div>
                     </div>
 
@@ -192,12 +192,12 @@ const Services = () => {
                   </div>
 
                   <div className="p-6">
-                    <h3 className="text-2xl font-poppins font-bold text-navy-900 mb-2">
+                    <h3 className="text-2xl font-poppins font-bold text-white mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-4">{service.shortDesc}</p>
+                    <p className="text-slate-400 text-sm mb-4">{service.shortDesc}</p>
 
-                    <div className="flex items-center gap-2 text-gold-600 font-semibold text-sm">
+                    <div className="flex items-center gap-2 text-cyan-400 font-semibold text-sm">
                       <span>Hover to learn more</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
@@ -206,23 +206,23 @@ const Services = () => {
 
                 {/* BACK FACE */}
                 <div
-                  className="absolute inset-0 backface-hidden rounded-3xl overflow-hidden border border-gold-400 shadow-3d-elevated"
+                  className="absolute inset-0 backface-hidden rounded-3xl overflow-hidden border border-cyan-400/50 shadow-3d-elevated neon-cyan"
                   style={{
                     backfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)',
-                    background: 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #f59e0b 100%)',
+                    background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #06B6D4 100%)',
                   }}
                 >
                   <div className="h-full flex flex-col p-6 text-white">
                     {/* Icon */}
                     <div className="mb-4">
-                      <div className="w-12 h-12 bg-gold-500 rounded-xl flex items-center justify-center">
-                        <service.icon className="w-6 h-6 text-navy-900" />
+                      <div className="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center neon-cyan">
+                        <service.icon className="w-6 h-6 text-slate-900" />
                       </div>
                     </div>
 
                     <h3 className="text-2xl font-poppins font-bold mb-3">{service.title}</h3>
-                    <p className="text-blue-100 text-sm leading-relaxed mb-5">
+                    <p className="text-slate-300 text-sm leading-relaxed mb-5">
                       {service.description}
                     </p>
 
@@ -236,10 +236,10 @@ const Services = () => {
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: idx * 0.1 }}
                         >
-                          <div className="w-5 h-5 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0">
-                            <Check className="w-3 h-3 text-navy-900" />
+                          <div className="w-5 h-5 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <Check className="w-3 h-3 text-slate-900" />
                           </div>
-                          <span className="text-sm text-blue-100">{feature}</span>
+                          <span className="text-sm text-slate-300">{feature}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -247,7 +247,7 @@ const Services = () => {
                     {/* CTA Button */}
                     <motion.a
                       href="#contact"
-                      className="mt-4 w-full bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold py-3 rounded-xl text-center transition-all shadow-3d-button"
+                      className="mt-4 w-full bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 text-white font-bold py-3 rounded-xl text-center transition-all shadow-3d-button neon-dual"
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >

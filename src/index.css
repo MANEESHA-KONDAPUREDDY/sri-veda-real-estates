@@ -3,14 +3,14 @@
 @theme {
   --font-lato: 'Lato', sans-serif;
   --font-poppins: 'Poppins', sans-serif;
-  --color-primary: #1E3A8A;
-  --color-primary-light: #2563EB;
-  --color-accent: #F59E0B;
-  --color-accent-dark: #1E40AF;
-  --color-secondary: #FCD34D;
+  --color-primary: #8B5CF6;
+  --color-primary-light: #A78BFA;
+  --color-accent: #06B6D4;
+  --color-accent-dark: #0891B2;
+  --color-secondary: #22D3EE;
   --color-red: #EF4444;
-  --color-gold: #FEF3C7;
-  --color-dark: #1F2937;
+  --color-gold: #7C3AED;
+  --color-dark: #0F172A;
   --color-gray-light: #F9FAFB;
   --color-success: #10B981;
 }
@@ -29,8 +29,8 @@
   body {
     font-family: 'Lato', sans-serif;
     overflow-x: hidden;
-    background-color: #ffffff;
-    color: #1a1a1a;
+    background-color: #0F172A;
+    color: #ffffff;
     perspective: 1000px;
     transform-style: preserve-3d;
   }
@@ -80,23 +80,26 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F0F4FF;
+  background: #020617;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #1E3A8A, #F59E0B);
+  background: linear-gradient(180deg, #8B5CF6, #06B6D4);
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #1E40AF, #FCD34D);
+  background: linear-gradient(180deg, #A78BFA, #22D3EE);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.8);
 }
 
 /* Swiper custom styles */
 .swiper-pagination-bullet {
-  background: #F59E0B !important;
+  background: #06B6D4 !important;
   opacity: 0.5;
   transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
 }
 
 .swiper-pagination-bullet-active {
@@ -106,11 +109,11 @@
 
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #1E3A8A, #2563EB, #F59E0B);
+  background: linear-gradient(135deg, #8B5CF6, #A78BFA, #06B6D4, #22D3EE);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  background-size: 200% 200%;
+  background-size: 300% 300%;
   animation: gradient-shift 5s ease infinite;
 }
 
@@ -160,8 +163,8 @@
 
 /* Pulse glow animation */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.4), 0 0 60px rgba(30, 58, 138, 0.2); }
-  50% { box-shadow: 0 0 50px rgba(245, 158, 11, 0.6), 0 0 100px rgba(30, 58, 138, 0.3); }
+  0%, 100% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(139, 92, 246, 0.3); }
+  50% { box-shadow: 0 0 50px rgba(6, 182, 212, 0.8), 0 0 100px rgba(139, 92, 246, 0.5); }
 }
 
 .animate-pulse-glow {
@@ -612,4 +615,196 @@
     1px 1px 0 #FCD34D,
     2px 2px 0 #F59E0B,
     3px 3px 5px rgba(30, 58, 138, 0.3);
+}
+
+/* ========================================
+   NEON GLOW EFFECTS (PURPLE & CYAN)
+   ======================================== */
+
+/* Cyan Neon Glow */
+.neon-cyan {
+  box-shadow:
+    0 0 10px rgba(6, 182, 212, 0.4),
+    0 0 20px rgba(6, 182, 212, 0.6),
+    0 0 40px rgba(6, 182, 212, 0.4),
+    0 0 60px rgba(6, 182, 212, 0.2);
+}
+
+.neon-cyan-strong {
+  box-shadow:
+    0 0 15px rgba(6, 182, 212, 0.6),
+    0 0 30px rgba(6, 182, 212, 0.8),
+    0 0 60px rgba(6, 182, 212, 0.6),
+    0 0 90px rgba(6, 182, 212, 0.4);
+}
+
+/* Purple Neon Glow */
+.neon-purple {
+  box-shadow:
+    0 0 10px rgba(139, 92, 246, 0.4),
+    0 0 20px rgba(139, 92, 246, 0.6),
+    0 0 40px rgba(139, 92, 246, 0.4);
+}
+
+.neon-purple-strong {
+  box-shadow:
+    0 0 15px rgba(139, 92, 246, 0.6),
+    0 0 30px rgba(139, 92, 246, 0.8),
+    0 0 60px rgba(139, 92, 246, 0.6);
+}
+
+/* Combined Purple + Cyan Glow */
+.neon-dual {
+  box-shadow:
+    0 0 20px rgba(6, 182, 212, 0.5),
+    0 0 40px rgba(139, 92, 246, 0.5),
+    0 0 60px rgba(6, 182, 212, 0.3),
+    0 0 80px rgba(139, 92, 246, 0.3);
+}
+
+/* Text Glow Effects */
+.text-glow-cyan {
+  text-shadow:
+    0 0 10px rgba(6, 182, 212, 0.8),
+    0 0 20px rgba(6, 182, 212, 0.6),
+    0 0 30px rgba(6, 182, 212, 0.4);
+}
+
+.text-glow-purple {
+  text-shadow:
+    0 0 10px rgba(139, 92, 246, 0.8),
+    0 0 20px rgba(139, 92, 246, 0.6);
+}
+
+/* ========================================
+   ENHANCED ANIMATIONS
+   ======================================== */
+
+/* Gradient Wave Animation */
+@keyframes gradient-wave {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-wave {
+  background: linear-gradient(270deg, #8B5CF6, #06B6D4, #8B5CF6);
+  background-size: 400% 400%;
+  animation: gradient-wave 8s ease infinite;
+}
+
+/* Ripple Effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* Glow Pulse Animation */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(6, 182, 212, 0.8),
+                0 0 60px rgba(139, 92, 246, 0.6);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Shimmer Effect */
+@keyframes shimmer-glow {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(6, 182, 212, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-glow 2s linear infinite;
+}
+
+/* Hover Lift with Glow */
+.hover-lift-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-lift-glow:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 0 30px rgba(6, 182, 212, 0.6),
+    0 20px 40px rgba(139, 92, 246, 0.4);
+}
+
+/* 3D Cube Loading Animation */
+@keyframes cube-spin {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.animate-cube-spin {
+  animation: cube-spin 4s linear infinite;
+}
+
+/* ========================================
+   HOVER NEON GLOW EFFECTS
+   ======================================== */
+
+/* Hover Effects - Cyan Glow */
+.neon-cyan-hover:hover {
+  box-shadow:
+    0 0 15px rgba(6, 182, 212, 0.6),
+    0 0 30px rgba(6, 182, 212, 0.8),
+    0 0 60px rgba(6, 182, 212, 0.6),
+    0 0 90px rgba(6, 182, 212, 0.4);
+  transition: box-shadow 0.4s ease;
+}
+
+/* Hover Effects - Purple Glow */
+.neon-purple-hover:hover {
+  box-shadow:
+    0 0 15px rgba(139, 92, 246, 0.6),
+    0 0 30px rgba(139, 92, 246, 0.8),
+    0 0 60px rgba(139, 92, 246, 0.6);
+  transition: box-shadow 0.4s ease;
+}
+
+/* Hover Effects - Dual Glow */
+.neon-dual-hover:hover {
+  box-shadow:
+    0 0 20px rgba(6, 182, 212, 0.6),
+    0 0 40px rgba(139, 92, 246, 0.6),
+    0 0 60px rgba(6, 182, 212, 0.4),
+    0 0 80px rgba(139, 92, 246, 0.4);
+  transition: box-shadow 0.4s ease;
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Loader from './components/Loader';
+import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,20 +12,19 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000);
-    return () => clearTimeout(timer);
+    setTimeout(() => setLoading(false), 2500);
   }, []);
 
   return (
     <>
-      <Loader isLoading={isLoading} />
+      <LoadingScreen isLoading={loading} />
 
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: isLoading ? 0 : 1 }}
+        animate={{ opacity: loading ? 0 : 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
         <Navbar />
